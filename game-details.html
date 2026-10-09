@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Details - GameZone</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .game-detail-main {
+            min-height: 70vh;
+            padding: 38px 0 75px;
+            background: #080b16;
+        }
+
+        .detail-breadcrumb {
+            color: #94a3b8;
+            font-size: .92rem;
+            margin-bottom: 18px;
+        }
+
+        .detail-breadcrumb a {
+            color: #a78bfa;
+            text-decoration: none;
+        }
+
+        .detail-breadcrumb a:hover {
+            color: #c4b5fd;
+        }
+
+        .game-detail-hero {
+            position: relative;
+            isolation: isolate;
+            min-height: 365px;
+            overflow: hidden;
+            border: 1px solid rgba(139, 92, 246, .24);
+            border-radius: 20px;
+            margin-bottom: 28px;
+            background:
+                radial-gradient(circle at 75% 25%, rgba(124,58,237,.45), transparent 35%),
+                linear-gradient(135deg, #111827, #121a35 55%, #171144);
+            box-shadow: 0 18px 45px rgba(0,0,0,.22);
+        }
+
+        .game-detail-banner {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            z-index: -2;
+        }
+
+        .game-detail-hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background:
+                linear-gradient(90deg,
+                    rgba(8,11,22,.96) 0%,
+                    rgba(8,11,22,.79) 43%,
+                    rgba(8,11,22,.25) 100%),
+                linear-gradient(0deg,
+                    rgba(8,11,22,.38),
+                    transparent 65%);
+        }
+
+        .game-detail-hero-content {
+            min-height: 365px;
+            max-width: 760px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 42px clamp(24px, 5vw, 58px);
+        }
+
+        .game-detail-label {
+            display: inline-block;
+            color: #c4b5fd;
+            font-size: .78rem;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            padding: 7px 12px;
+            border: 1px solid rgba(167,139,250,.45);
+            background: rgba(124,58,237,.18);
+            border-radius: 999px;
+            margin-bottom: 18px;
+        }
+
+        .game-detail-hero h1 {
+            color: #fff;
+            font-size: clamp(2.25rem, 5vw, 3.7rem);
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 14px;
+        }
+
+        .game-detail-tagline {
+            color: #d1d5db;
+            font-size: 1.06rem;
+            line-height: 1.75;
+            max-width: 620px;
+            margin-bottom: 24px;
+        }
+
+        .detail-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .detail-primary-btn,
+        .detail-secondary-btn {
+            display: inline-block;
+            text-decoration: none;
+            border-radius: 9px;
+            padding: 12px 18px;
+            font-weight: 700;
+            transition: .2s ease;
+        }
+
+        .detail-primary-btn {
+            color: #fff;
+            background: linear-gradient(135deg, #2563eb, #7c3aed);
+            border: 0;
+        }
+
+        .detail-primary-btn:hover {
+            color: #fff;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 23px rgba(79,70,229,.32);
+        }
+
+        .detail-secondary-btn {
+            color: #e5e7eb;
+            border: 1px solid #475569;
+            background: rgba(8,11,22,.45);
+        }
+
+        .detail-secondary-btn:hover {
+            color: #fff;
+            border-color: #8b5cf6;
+            background: rgba(124,58,237,.13);
+        }
+
+        .detail-panel {
+            height: 100%;
+            padding: 26px;
+            background: #111827;
+            border: 1px solid rgba(148,163,184,.15);
+            border-radius: 16px;
+        }
+
+        .detail-panel h2 {
+            color: #fff;
+            font-size: 1.45rem;
+            font-weight: 750;
+            margin-bottom: 14px;
+        }
+
+        .detail-panel p {
+            color: #cbd5e1;
+            line-height: 1.8;
+        }
+
+        .detail-info-list {
+            margin: 0;
+        }
+
+        .detail-info-row {
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(148,163,184,.12);
+        }
+
+        .detail-info-row:last-child {
+            border-bottom: 0;
+        }
+
+        .detail-info-row dt {
+            color: #94a3b8;
+            font-size: .82rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .detail-info-row dd {
+            color: #f3f4f6;
+            margin: 0;
+            line-height: 1.55;
+        }
+
+        .detail-section-title {
+            color: #fff;
+            font-size: 1.9rem;
+            font-weight: 800;
+            margin: 42px 0 20px;
+        }
+
+        .detail-feature-card {
+            height: 100%;
+            padding: 23px;
+            background: #111827;
+            border: 1px solid rgba(139,92,246,.16);
+            border-radius: 15px;
+        }
+
+        .detail-feature-number {
+            width: 42px;
+            height: 42px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            color: #ddd6fe;
+            background: linear-gradient(135deg, rgba(37,99,235,.25), rgba(124,58,237,.25));
+            border: 1px solid rgba(139,92,246,.18);
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .detail-feature-card h3 {
+            color: #fff;
+            font-size: 1.08rem;
+            font-weight: 700;
+            margin-bottom: 9px;
+        }
+
+        .detail-feature-card p {
+            color: #9ca3af;
+            font-size: .94rem;
+            line-height: 1.7;
+            margin: 0;
+        }
+
+        .detail-note {
+            color: #94a3b8;
+            font-size: .88rem;
+            margin-top: 24px;
+            line-height: 1.65;
+        }
+
+        .game-detail-not-found {
+            text-align: center;
+            padding: 70px 20px;
+            background: #111827;
+            border-radius: 18px;
+            border: 1px solid rgba(148,163,184,.15);
+        }
+
+        .game-detail-not-found h1 {
+            color: #fff;
+        }
+
+        .game-detail-not-found p {
+            color: #9ca3af;
+        }
+
+        @media (max-width: 768px) {
+            .game-detail-main {
+                padding-top: 25px;
+            }
+
+            .game-detail-hero,
+            .game-detail-hero-content {
+                min-height: 385px;
+            }
+
+            .game-detail-hero::after {
+                background:
+                    linear-gradient(90deg, rgba(8,11,22,.9), rgba(8,11,22,.52)),
+                    linear-gradient(0deg, rgba(8,11,22,.48), transparent);
+            }
+
+            .detail-panel {
+                padding: 22px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
+        <div class="container">
+
+            <a class="navbar-brand game-logo" href="index.html">
+                🎮 <span>Game</span>Zone
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="games.html">Games</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="tournaments.html">Tournaments</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <main class="game-detail-main">
+        <div class="container">
+
+            <div class="detail-breadcrumb">
+                <a href="index.html">Home</a> /
+                <a href="games.html">Games</a> /
+                <span id="breadcrumbGame">Game Details</span>
+            </div>
+
+            <section id="gameDetailsContent">
+
+                <div class="game-detail-hero">
+
+                    <img
+                        id="gameBanner"
+                        class="game-detail-banner"
+                        src=""
+                        alt=""
+                    >
+
+                    <div class="game-detail-hero-content">
+
+                        <span class="game-detail-label" id="gameGenreLabel">
+                            GAME DETAILS
+                        </span>
+
+                        <h1 id="gameTitle">Game Details</h1>
+
+                        <p class="game-detail-tagline" id="gameTagline"></p>
+
+                        <div class="detail-actions">
+                            <a href="tournaments.html" class="detail-primary-btn">
+                                Explore Tournaments →
+                            </a>
+
+                            <a href="games.html" class="detail-secondary-btn">
+                                Back to Games
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <div class="row g-4">
+
+                    <div class="col-lg-8">
+                        <section class="detail-panel">
+
+                            <h2>About This Game</h2>
+
+                            <p id="gameOverview"></p>
+
+                            <p id="gameGameplay"></p>
+
+                        </section>
+                    </div>
+
+                    <div class="col-lg-4">
+                        <aside class="detail-panel">
+
+                            <h2>Game Information</h2>
+
+                            <dl class="detail-info-list">
+
+                                <div class="detail-info-row">
+                                    <dt>Genre</dt>
+                                    <dd id="gameGenre"></dd>
+                                </div>
+
+                                <div class="detail-info-row">
+                                    <dt>Developer</dt>
+                                    <dd id="gameDeveloper"></dd>
+                                </div>
+
+                                <div class="detail-info-row">
+                                    <dt>Publisher</dt>
+                                    <dd id="gamePublisher"></dd>
+                                </div>
+
+                                <div class="detail-info-row">
+                                    <dt>Release</dt>
+                                    <dd id="gameRelease"></dd>
+                                </div>
+
+                                <div class="detail-info-row">
+                                    <dt>Platforms</dt>
+                                    <dd id="gamePlatforms"></dd>
+                                </div>
+
+                            </dl>
+                        </aside>
+                    </div>
+
+                </div>
+
+
+                <h2 class="detail-section-title">
+                    What Makes It Stand Out?
+                </h2>
+
+                <div class="row g-4" id="gameFeatureList"></div>
+
+                <p class="detail-note" id="gameNote"></p>
+
+            </section>
+
+
+            <section id="gameNotFound" class="game-detail-not-found" hidden>
+
+                <h1>Game Not Found</h1>
+
+                <p>
+                    We couldn't find that game. Return to the Games page
+                    and choose a title to learn more.
+                </p>
+
+                <a href="games.html" class="detail-primary-btn">
+                    Browse Games →
+                </a>
+
+            </section>
+
+        </div>
+    </main>
+
+
+    <footer class="game-footer">
+        <div class="container">
+
+            <div class="footer-logo">🎮 GameZone</div>
+
+            <p>
+                Your ultimate hub for games, gaming news,
+                tournaments, and community.
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 GameZone. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script>
+        const gameLibrary = {
+
+            "tekken8": {
+                title: "Tekken 8",
+                genre: "3D Fighting",
+                image: "images/tekken-8-tourna.jpg",
+                tagline: "Step into intense one-on-one battles where timing, movement, and smart decisions matter.",
+                developer: "Bandai Namco Studios",
+                publisher: "Bandai Namco Entertainment",
+                release: "January 26, 2024",
+                platforms: "PlayStation 5, Xbox Series X|S, Windows PC",
+
+                overview: "Tekken 8 is a 3D fighting game built around one-on-one matches. Players choose from a roster of fighters, each with their own move sets, combos, throws, and fighting style. The game continues the long-running Tekken series and places a strong emphasis on aggressive play and close-range combat.",
+
+                gameplay: "Its Heat System gives players additional ways to apply pressure and create offensive opportunities. Players can learn a character's moves, practice combos, and improve their reactions before taking their skills into different offline and online modes.",
+
+                features: [
+                    {
+                        title: "Distinct Fighters",
+                        text: "Choose characters with unique move lists, strengths, and ways to approach a match."
+                    },
+                    {
+                        title: "Aggressive Combat",
+                        text: "The Heat System creates opportunities to keep pressure on an opponent and make bold offensive decisions."
+                    },
+                    {
+                        title: "Practice and Compete",
+                        text: "Learn combos, improve movement and defense, and explore the available story, offline, and online modes."
+                    }
+                ],
+
+                note: "Platform availability and online features may depend on the edition, service status, and platform."
+            },
+
+
+            "valorant": {
+                title: "VALORANT",
+                genre: "Tactical First-Person Shooter",
+                image: "images/valorant-tourna.jpg",
+                tagline: "Coordinate with your team, use agent abilities carefully, and win round-based tactical battles.",
+                developer: "Riot Games",
+                publisher: "Riot Games",
+                release: "June 2, 2020 (PC launch)",
+                platforms: "Windows PC, PlayStation 5, Xbox Series X|S",
+
+                overview: "VALORANT is a competitive tactical shooter featuring teams of attackers and defenders. Players select agents with different abilities, but accurate shooting, map knowledge, communication, and teamwork remain important parts of each match.",
+
+                gameplay: "Rounds often require teams to coordinate their utility, manage the in-game economy, and decide when to push, hold a position, or rotate to another area of the map. Each agent adds a different set of tactical options, so team composition and communication can influence how a round is played.",
+
+                features: [
+                    {
+                        title: "Agent Abilities",
+                        text: "Each agent brings abilities that can help gather information, control space, or support teammates."
+                    },
+                    {
+                        title: "Round-Based Strategy",
+                        text: "Teams need to manage resources, plan attacks, defend sites, and adapt to opponents."
+                    },
+                    {
+                        title: "Team Communication",
+                        text: "Sharing information and coordinating actions can make a major difference during a close match."
+                    }
+                ],
+
+                note: "Console availability and features can vary by region and platform."
+            },
+
+
+            "marvel-rivals": {
+                title: "Marvel Rivals",
+                genre: "Team-Based Hero Shooter",
+                image: "images/marvel-rivals-tournament.jpg",
+                tagline: "Build a team of heroes and villains and combine their abilities in fast-paced battles.",
+                developer: "NetEase Games",
+                publisher: "NetEase Games",
+                release: "December 6, 2024",
+                platforms: "Windows PC, PlayStation 5, Xbox Series X|S",
+
+                overview: "Marvel Rivals is a team-based player-versus-player shooter featuring characters from the Marvel universe. Each character has a role and set of abilities, encouraging players to work together rather than rely only on individual performance.",
+
+                gameplay: "Matches revolve around team coordination, positioning, and using character abilities at the right time. Certain character combinations can create team-up effects, while destructible environments can change how players move through and fight over the map.",
+
+                features: [
+                    {
+                        title: "Marvel Characters",
+                        text: "Play as a range of familiar heroes and villains, each with their own combat style and abilities."
+                    },
+                    {
+                        title: "Team-Up Abilities",
+                        text: "Some character combinations provide special interactions that reward coordinated team choices."
+                    },
+                    {
+                        title: "Changing Battlefields",
+                        text: "Destructible environments can alter sightlines and create new opportunities during a match."
+                    }
+                ],
+
+                note: "Character rosters, seasons, and online features may change as the game receives updates."
+            },
+
+
+            "nba2k": {
+                title: "NBA 2K",
+                genre: "Basketball Simulation / Sports",
+                image: "images/nba2k-tournament.jpg",
+                tagline: "Take the court, build your basketball lineup, and compete through virtual basketball gameplay.",
+                developer: "Visual Concepts (varies by edition credits)",
+                publisher: "2K",
+                release: "Annual game series",
+                platforms: "Varies by edition",
+
+                overview: "NBA 2K is a basketball video game series that recreates professional basketball through teams, player likenesses, on-court controls, and different ways to play. Depending on the edition, players can take control of a full team, focus on a created player, or compete in online and offline modes.",
+
+                gameplay: "Success involves more than shooting. Players make decisions about passing, spacing, defensive positioning, timing, substitutions, and team strategy. Different editions can include different career, franchise, online, and progression modes, so the exact features depend on which version is being played.",
+
+                features: [
+                    {
+                        title: "Basketball Gameplay",
+                        text: "Use passing, shooting, dribbling, defense, and positioning to create scoring opportunities."
+                    },
+                    {
+                        title: "Teams and Lineups",
+                        text: "Play with basketball teams and rosters included in the specific edition."
+                    },
+                    {
+                        title: "Multiple Ways to Play",
+                        text: "Available modes differ by version and can include career, team management, and online competition."
+                    }
+                ],
+
+                note: "NBA 2K is a series rather than one specific edition. Features, rosters, platforms, and modes vary by release."
+            },
+
+
+            "street-fighter-6": {
+                title: "Street Fighter 6",
+                genre: "Fighting",
+                image: "images/street-fighter-6-tournament.jpg",
+                tagline: "Master your chosen fighter, learn your matchups, and find your own way to compete.",
+                developer: "Capcom",
+                publisher: "Capcom",
+                release: "June 2, 2023",
+                platforms: "PlayStation 4, PlayStation 5, Xbox Series X|S, PC",
+
+                overview: "Street Fighter 6 is a fighting game in Capcom's long-running Street Fighter series. Players select a fighter with a distinct set of attacks and special moves, then compete by managing distance, timing, resources, and defensive choices.",
+
+                gameplay: "The game includes different control options to make its combat approachable to different players. Its major modes include Fighting Ground for direct combat, World Tour for a single-player adventure, and Battle Hub for social and online activities.",
+
+                features: [
+                    {
+                        title: "Different Control Styles",
+                        text: "Control options provide different ways to perform moves, depending on a player's preference and experience."
+                    },
+                    {
+                        title: "Drive System",
+                        text: "The Drive Gauge supports offensive and defensive actions, creating important choices during a fight."
+                    },
+                    {
+                        title: "Multiple Modes",
+                        text: "Fighting Ground, World Tour, and Battle Hub offer different ways to practice, explore, and play."
+                    }
+                ],
+
+                note: "Some features and online services require an internet connection and may vary by platform."
+            },
+
+
+            "call-of-duty": {
+                title: "Call of Duty",
+                genre: "First-Person Shooter",
+                image: "images/call-of-duty-tournament.jpg",
+                tagline: "Experience fast-paced shooter action, team objectives, and tactical decisions in a familiar FPS series.",
+                developer: "Varies by installment",
+                publisher: "Activision",
+                release: "Series launched in 2003",
+                platforms: "Varies by installment",
+
+                overview: "Call of Duty is a first-person shooter franchise with entries that cover different conflicts, settings, and styles of combat. Depending on the release, players may experience a story campaign, competitive multiplayer, cooperative missions, or other modes.",
+
+                gameplay: "Multiplayer matches commonly reward map awareness, accurate aim, movement, teamwork, and understanding each mode's objective. The weapons, maps, progression systems, and available modes differ across installments, so players should check the details for the particular version they play.",
+
+                features: [
+                    {
+                        title: "First-Person Action",
+                        text: "Experience combat from a first-person perspective with a range of weapons and equipment."
+                    },
+                    {
+                        title: "Objective-Based Matches",
+                        text: "Many multiplayer modes ask teams to capture, defend, or complete objectives instead of focusing only on eliminations."
+                    },
+                    {
+                        title: "Different Game Modes",
+                        text: "Campaign, multiplayer, cooperative, and additional modes depend on the specific installment."
+                    }
+                ],
+
+                note: "Call of Duty refers to a series. Exact modes, release dates, platforms, and system requirements depend on the selected title."
+            }
+
+        };
+
+        const selectedGameKey =
+            new URLSearchParams(window.location.search).get("game");
+
+        const selectedGame = gameLibrary[selectedGameKey];
+
+
+        if (!selectedGame) {
+
+            document.getElementById("gameDetailsContent").hidden = true;
+            document.getElementById("gameNotFound").hidden = false;
+            document.title = "Game Not Found - GameZone";
+
+        } else {
+
+            document.title = selectedGame.title + " - GameZone";
+
+            document.getElementById("breadcrumbGame").textContent =
+                selectedGame.title;
+
+            document.getElementById("gameGenreLabel").textContent =
+                selectedGame.genre.toUpperCase();
+
+            document.getElementById("gameTitle").textContent =
+                selectedGame.title;
+
+            document.getElementById("gameTagline").textContent =
+                selectedGame.tagline;
+
+            document.getElementById("gameOverview").textContent =
+                selectedGame.overview;
+
+            document.getElementById("gameGameplay").textContent =
+                selectedGame.gameplay;
+
+            document.getElementById("gameGenre").textContent =
+                selectedGame.genre;
+
+            document.getElementById("gameDeveloper").textContent =
+                selectedGame.developer;
+
+            document.getElementById("gamePublisher").textContent =
+                selectedGame.publisher;
+
+            document.getElementById("gameRelease").textContent =
+                selectedGame.release;
+
+            document.getElementById("gamePlatforms").textContent =
+                selectedGame.platforms;
+
+            document.getElementById("gameNote").textContent =
+                selectedGame.note;
+
+
+            const banner = document.getElementById("gameBanner");
+
+            banner.src = selectedGame.image;
+            banner.alt = selectedGame.title + " gameplay image";
+
+            banner.onerror = function () {
+                this.style.display = "none";
+            };
+
+            const featureList = document.getElementById("gameFeatureList");
+
+            selectedGame.features.forEach(function (feature, index) {
+
+                const column = document.createElement("div");
+                column.className = "col-md-6 col-lg-4";
+
+                const card = document.createElement("article");
+                card.className = "detail-feature-card";
+
+                const number = document.createElement("div");
+                number.className = "detail-feature-number";
+                number.textContent = String(index + 1).padStart(2, "0");
+
+                const heading = document.createElement("h3");
+                heading.textContent = feature.title;
+
+                const description = document.createElement("p");
+                description.textContent = feature.text;
+
+                card.append(number, heading, description);
+                column.appendChild(card);
+                featureList.appendChild(column);
+
+            });
+
+        }
+    </script>
+
+</body>
+</html>

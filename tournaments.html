@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameZone - Tournaments</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .tournament-visual {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .tournament-cover {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            z-index: 1;
+            transition: transform 0.35s ease;
+        }
+
+        .modern-tournament-card:hover .tournament-cover {
+            transform: scale(1.04);
+        }
+
+        .tournament-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(8, 11, 22, 0.03),
+                rgba(8, 11, 22, 0.42)
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .tournament-status {
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
+        <div class="container">
+
+            <a class="navbar-brand game-logo" href="index.html">
+                🎮 <span>Game</span>Zone
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="games.html">
+                            Games
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">
+                            News
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a
+                            class="nav-link active"
+                            href="tournaments.html"
+                        >
+                            Tournaments
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">
+                            Community
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+
+    <section class="tournaments-header">
+        <div class="container text-center">
+
+            <h1>Tournaments</h1>
+
+            <p>
+                Compete with other players and join the next GameZone tournament.
+            </p>
+
+        </div>
+    </section>
+
+
+    <section class="tournaments-section">
+        <div class="container">
+
+            <div class="section-heading text-center">
+
+                <h2>Upcoming Tournaments</h2>
+
+                <p>
+                    Choose a tournament and register to compete.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-tekken">
+
+                            <img
+                                src="images/tekken-8-tourna.jpg"
+                                alt="Tekken 8 tournament"
+                                class="tournament-cover"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game fighting">
+                                TEKKEN 8
+                            </span>
+
+                            <h3>GameZone Tekken Cup</h3>
+
+                            <p>
+                                Test your fighting skills against other
+                                Tekken 8 players.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Oct 25, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>32 Players</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone Tekken Cup"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-valorant">
+
+                            <img
+                                src="images/valorant-tourna.jpg"
+                                alt="Valorant tournament"
+                                class="tournament-cover"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game shooter">
+                                VALORANT
+                            </span>
+
+                            <h3>GameZone Valorant Clash</h3>
+
+                            <p>
+                                Team up and compete in a tactical
+                                Valorant tournament.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Nov 8, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>16 Teams</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone Valorant Clash"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-marvel">
+
+                            <img
+                                src="images/marvel-rivals-tournament.jpg"
+                                alt="Marvel Rivals tournament"
+                                class="tournament-cover"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game action">
+                                MARVEL RIVALS
+                            </span>
+
+                            <h3>GameZone Rivals Showdown</h3>
+
+                            <p>
+                                Build your team and battle other
+                                Marvel Rivals players.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Nov 15, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>16 Teams</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone Rivals Showdown"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-nba">
+
+                            <img
+                                src="images/nba2k-tournament.jpg"
+                                alt="NBA 2K tournament"
+                                class="tournament-cover"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game sports">
+                                NBA 2K
+                            </span>
+
+                            <h3>GameZone NBA Challenge</h3>
+
+                            <p>
+                                Compete on the virtual court and
+                                prove your basketball skills.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Nov 22, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>24 Players</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone NBA Challenge"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-streetfighter">
+
+                            <img
+                                src="images/street-fighter-6-tournament.jpg"
+                                alt="Street Fighter 6 tournament"
+                                class="tournament-cover"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game fighting">
+                                STREET FIGHTER 6
+                            </span>
+
+                            <h3>GameZone Street Fighter Cup</h3>
+
+                            <p>
+                                Enter the arena and compete in a
+                                Street Fighter 6 challenge.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Nov 29, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>32 Players</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone Street Fighter Cup"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-cod">
+
+                            <img
+                                src="images/call-of-duty-tournament.jpg"
+                                alt="Call of Duty tournament"
+                                class="tournament-cover"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game shooter">
+                                CALL OF DUTY
+                            </span>
+
+                            <h3>GameZone COD Warfare</h3>
+
+                            <p>
+                                Take part in a fast-paced Call of Duty
+                                competitive tournament.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Dec 6, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>16 Teams</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone COD Warfare"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="registration-wrapper" id="registrationSection">
+
+                <div class="registration-card">
+
+                    <div class="registration-heading">
+
+                        <div class="section-label">
+                            PLAYER REGISTRATION
+                        </div>
+
+                        <h2>Register for a Tournament</h2>
+
+                        <p>
+                            Complete the form below to submit your registration.
+                        </p>
+
+                    </div>
+
+
+                    <form id="registrationForm">
+
+                        <div class="mb-3">
+
+                            <label
+                                for="gamerName"
+                                class="form-label"
+                            >
+                                Gamer Name
+                            </label>
+
+                            <input
+                                type="text"
+                                class="form-control"
+                                id="gamerName"
+                                placeholder="Enter your gamer name"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label
+                                for="gamerEmail"
+                                class="form-label"
+                            >
+                                Email Address
+                            </label>
+
+                            <input
+                                type="email"
+                                class="form-control"
+                                id="gamerEmail"
+                                placeholder="Enter your email"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label
+                                for="tournamentChoice"
+                                class="form-label"
+                            >
+                                Tournament
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="tournamentChoice"
+                                required
+                            >
+
+                                <option value="">
+                                    Select a tournament
+                                </option>
+
+                                <option value="GameZone Tekken Cup">
+                                    GameZone Tekken Cup
+                                </option>
+
+                                <option value="GameZone Valorant Clash">
+                                    GameZone Valorant Clash
+                                </option>
+
+                                <option value="GameZone Rivals Showdown">
+                                    GameZone Rivals Showdown
+                                </option>
+
+                                <option value="GameZone NBA Challenge">
+                                    GameZone NBA Challenge
+                                </option>
+
+                                <option value="GameZone Street Fighter Cup">
+                                    GameZone Street Fighter Cup
+                                </option>
+
+                                <option value="GameZone COD Warfare">
+                                    GameZone COD Warfare
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="mb-3">
+
+                            <label
+                                for="experience"
+                                class="form-label"
+                            >
+                                Gaming Experience
+                            </label>
+
+                            <select
+                                class="form-select"
+                                id="experience"
+                                required
+                            >
+
+                                <option value="">
+                                    Select your experience
+                                </option>
+
+                                <option value="Beginner">
+                                    Beginner
+                                </option>
+
+                                <option value="Intermediate">
+                                    Intermediate
+                                </option>
+
+                                <option value="Advanced">
+                                    Advanced
+                                </option>
+
+                                <option value="Competitive">
+                                    Competitive Player
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+                        <div class="form-check mb-4">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="terms"
+                                required
+                            >
+
+                            <label
+                                class="form-check-label"
+                                for="terms"
+                            >
+                                I confirm that the information I provided is correct.
+                            </label>
+
+                        </div>
+
+
+                        <button
+                            type="submit"
+                            class="registration-submit"
+                        >
+                            Submit Registration →
+                        </button>
+
+                    </form>
+
+
+                    <div
+                        id="registrationSuccess"
+                        class="registration-success"
+                        style="display: none;"
+                    >
+                        ✅ Your tournament registration has been submitted successfully!
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="game-footer">
+
+        <div class="container">
+
+            <div class="footer-logo">
+                🎮 GameZone
+            </div>
+
+            <p>
+                Your ultimate hub for games, gaming news,
+                tournaments, and community.
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 GameZone. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

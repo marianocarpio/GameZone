@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameZone - Gaming Hub</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        .game-cover {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.35s ease;
+        }
+
+        .modern-game-card:hover .game-cover {
+            transform: scale(1.04);
+        }
+
+        .visual-overlay {
+            z-index: 2;
+        }
+
+        .visual-title {
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
+        <div class="container">
+
+            <a class="navbar-brand game-logo" href="index.html">
+                🎮 <span>Game</span>Zone
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="games.html">Games</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">News</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="tournaments.html">Tournaments</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">Community</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section class="home-hero">
+
+        <div class="hero-glow glow-one"></div>
+        <div class="hero-glow glow-two"></div>
+
+        <div class="container hero-content">
+
+            <h1>
+                Welcome to
+                <span>GameZone</span>
+            </h1>
+
+            <p>
+                Discover games, follow gaming news,
+                join tournaments, and connect with
+                other players.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="games.html" class="btn hero-main-btn">
+                    Explore Games →
+                </a>
+
+                <a href="tournaments.html" class="btn hero-secondary-btn">
+                    View Tournaments
+                </a>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="featured-section">
+        <div class="container">
+
+            <div class="section-heading">
+
+                <div class="section-label">
+                    🎮 GAME LIBRARY
+                </div>
+
+                <h2>Featured Games</h2>
+
+                <p>
+                    Explore some of the games available
+                    on GameZone.
+                </p>
+
+            </div>
+
+            <div class="row g-4">
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-game-card">
+
+                        <div
+                            class="game-visual"
+                            style="background: linear-gradient(135deg, #22040d, #7f1236, #160816);"
+                        >
+                            <img
+                                src="images/tekken8.jpg"
+                                alt="Tekken 8"
+                                class="game-cover"
+                            >
+
+                            <div class="visual-overlay"></div>
+
+                            <div class="visual-title">
+                                TEKKEN 8
+                            </div>
+                        </div>
+
+                        <div class="game-card-content">
+
+                            <div class="game-card-top">
+                                <h3>Tekken 8</h3>
+                                <span class="game-tag fighting">Fighting</span>
+                            </div>
+
+                            <p>
+                                A competitive fighting game featuring
+                                intense battles and a variety of fighters.
+                            </p>
+
+                            <a
+                                href="game-details.html?game=tekken8"
+                                class="game-button"
+                            >
+                                View Game →
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-game-card">
+
+                        <div
+                            class="game-visual"
+                            style="background: linear-gradient(135deg, #18070b, #7f1d2d, #111827);"
+                        >
+                            <img
+                                src="images/valorant.jpg"
+                                alt="Valorant"
+                                class="game-cover"
+                            >
+
+                            <div class="visual-overlay"></div>
+
+                            <div class="visual-title">
+                                VALORANT
+                            </div>
+                        </div>
+
+                        <div class="game-card-content">
+
+                            <div class="game-card-top">
+                                <h3>Valorant</h3>
+                                <span class="game-tag shooter">Shooter</span>
+                            </div>
+
+                            <p>
+                                A tactical competitive shooter focused
+                                on teamwork, strategy, and precision.
+                            </p>
+
+                            <a
+                                href="game-details.html?game=valorant"
+                                class="game-button"
+                            >
+                                View Game →
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-game-card">
+
+                        <div
+                            class="game-visual"
+                            style="background: linear-gradient(135deg, #071a3d, #1d4ed8, #450a0a);"
+                        >
+                            <img
+                                src="images/marvel-rivals.jpg"
+                                alt="Marvel Rivals"
+                                class="game-cover"
+                            >
+
+                            <div class="visual-overlay"></div>
+
+                            <div class="visual-title">
+                                MARVEL RIVALS
+                            </div>
+                        </div>
+
+                        <div class="game-card-content">
+
+                            <div class="game-card-top">
+                                <h3>Marvel Rivals</h3>
+                                <span class="game-tag action">Action</span>
+                            </div>
+
+                            <p>
+                                Team-based action featuring popular
+                                Marvel heroes and villains.
+                            </p>
+
+                            <a
+                                href="game-details.html?game=marvel-rivals"
+                                class="game-button"
+                            >
+                                View Game →
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-game-card">
+
+                        <div
+                            class="game-visual"
+                            style="background: linear-gradient(135deg, #3f0b0b, #b91c1c, #171717);"
+                        >
+                            <img
+                                src="images/nba2k.jpg"
+                                alt="NBA 2K26"
+                                class="game-cover"
+                            >
+
+                            <div class="visual-overlay"></div>
+
+                            <div class="visual-title">
+                                NBA 2K26
+                            </div>
+                        </div>
+
+                        <div class="game-card-content">
+
+                            <div class="game-card-top">
+                                <h3>NBA 2K26</h3>
+                                <span class="game-tag sports">Sports</span>
+                            </div>
+
+                            <p>
+                                A basketball game featuring competitive
+                                matches, teams, players, and game modes.
+                            </p>
+
+                            <a
+                                href="game-details.html?game=nba2k"
+                                class="game-button"
+                            >
+                                View Game →
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-game-card">
+
+                        <div
+                            class="game-visual"
+                            style="background: linear-gradient(135deg, #431407, #c2410c, #172554);"
+                        >
+                            <img
+                                src="images/street-fighter-6.jpg"
+                                alt="Street Fighter 6"
+                                class="game-cover"
+                            >
+
+                            <div class="visual-overlay"></div>
+
+                            <div class="visual-title">
+                                STREET FIGHTER 6
+                            </div>
+                        </div>
+
+                        <div class="game-card-content">
+
+                            <div class="game-card-top">
+                                <h3>Street Fighter 6</h3>
+                                <span class="game-tag fighting">Fighting</span>
+                            </div>
+
+                            <p>
+                                A fighting game where players compete
+                                using unique characters and abilities.
+                            </p>
+
+                            <a
+                                href="game-details.html?game=street-fighter-6"
+                                class="game-button"
+                            >
+                                View Game →
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- CALL OF DUTY -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-game-card">
+
+                        <div
+                            class="game-visual"
+                            style="background: linear-gradient(135deg, #111827, #374151, #020617);"
+                        >
+                            <img
+                                src="images/call-of-duty.jpg"
+                                alt="Call of Duty"
+                                class="game-cover"
+                            >
+
+                            <div class="visual-overlay"></div>
+
+                            <div class="visual-title">
+                                CALL OF DUTY
+                            </div>
+                        </div>
+
+                        <div class="game-card-content">
+
+                            <div class="game-card-top">
+                                <h3>Call of Duty</h3>
+                                <span class="game-tag shooter">Shooter</span>
+                            </div>
+
+                            <p>
+                                An action-packed shooter featuring
+                                competitive multiplayer gameplay.
+                            </p>
+
+                            <a
+                                href="game-details.html?game=call-of-duty"
+                                class="game-button"
+                            >
+                                View Game →
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="view-all-wrapper">
+                <a href="games.html" class="view-all-button">
+                    View All Games →
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer class="game-footer">
+        <div class="container">
+
+            <div class="footer-logo">
+                🎮 GameZone
+            </div>
+
+            <p>
+                Your ultimate hub for games,
+                gaming news, tournaments,
+                and community.
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 GameZone. All rights reserved.
+            </p>
+
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="js/script.js"></script>
+
+</body>
+</html>

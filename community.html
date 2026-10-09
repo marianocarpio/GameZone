@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameZone - Community</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
+
+        <div class="container">
+
+            <a class="navbar-brand game-logo" href="index.html">
+                🎮 <span>Game</span>Zone
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="games.html">
+                            Games
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="news.html">
+                            News
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="tournaments.html">
+                            Tournaments
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="community.html">
+                            Community
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <section class="community-header">
+
+        <div class="container text-center">
+
+            <h1>
+                Gaming Community
+            </h1>
+
+            <p>
+                Connect with other players, join discussions,
+                and find people to play with.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="community-section">
+
+        <div class="container">
+
+
+
+            <div class="section-heading text-center">
+
+                <h2>
+                    Community Hub
+                </h2>
+
+                <p>
+                    Choose a community activity below.
+                </p>
+
+            </div>
+
+
+            <div class="row g-4">
+
+
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="community-card">
+
+                        <div class="community-card-icon">
+                            💬
+                        </div>
+
+                        <span class="community-card-label">
+                            DISCUSSION
+                        </span>
+
+                        <h3>
+                            General Chat
+                        </h3>
+
+                        <p>
+                            Talk about games, share opinions,
+                            and meet other members of the GameZone community.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="discussionButton"
+                            class="community-button"
+                        >
+                            Open General Chat →
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="community-card">
+
+                        <div class="community-card-icon">
+                            👥
+                        </div>
+
+                        <span class="community-card-label">
+                            FIND PLAYERS
+                        </span>
+
+                        <h3>
+                            Find Players
+                        </h3>
+
+                        <p>
+                            Looking for teammates or other players?
+                            Start a conversation and connect with gamers.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="playersButton"
+                            class="community-button"
+                        >
+                            Find Players →
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-md-6 col-lg-4">
+
+                    <div class="community-card">
+
+                        <div class="community-card-icon">
+                            🏆
+                        </div>
+
+                        <span class="community-card-label">
+                            EVENTS
+                        </span>
+
+                        <h3>
+                            Community Events
+                        </h3>
+
+                        <p>
+                            Check upcoming GameZone competitions
+                            and participate in community tournaments.
+                        </p>
+
+                        <a
+                            href="tournaments.html"
+                            class="community-button"
+                        >
+                            View Events →
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                id="chatSection"
+                class="community-chat-section d-none"
+            >
+
+                <div class="chat-header">
+
+                    <div>
+
+                        <div class="section-label">
+                            💬 LIVE DISCUSSION
+                        </div>
+
+                        <h2 id="chatTitle">
+                            General Chat
+                        </h2>
+
+                        <p id="chatDescription">
+                            Talk with other GameZone players.
+                        </p>
+
+                    </div>
+
+                    <button
+                        type="button"
+                        id="closeChatButton"
+                        class="chat-close-button"
+                    >
+                        ✕ Close
+                    </button>
+
+                </div>
+
+
+
+                <div
+                    id="chatMessages"
+                    class="modern-chat-messages"
+                >
+                    <!-- JavaScript loads messages here -->
+                </div>
+
+
+
+                <form id="chatForm" class="chat-form">
+
+                    <div class="chat-input-row">
+
+                        <div class="chat-name-input">
+
+                            <label for="usernameInput">
+                                Gamer Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="usernameInput"
+                                class="form-control"
+                                placeholder="Enter your gamer name"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="chat-message-input">
+
+                            <label for="messageInput">
+                                Message
+                            </label>
+
+                            <input
+                                type="text"
+                                id="messageInput"
+                                class="form-control"
+                                placeholder="Write a message..."
+                                required
+                            >
+
+                        </div>
+
+                        <div class="chat-send-area">
+
+                            <label class="chat-label-placeholder">
+                                Send
+                            </label>
+
+                            <button
+                                type="submit"
+                                class="chat-send-button"
+                            >
+                                Send →
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </form>
+
+            </div>
+
+
+
+            <div class="recent-community-section">
+
+                <div class="section-heading text-center">
+
+                    <h2>
+                        Recent Community Posts
+                    </h2>
+
+                    <p>
+                        See what GameZone members are talking about.
+                    </p>
+
+                </div>
+
+
+                <div class="row g-4">
+
+
+
+                    <div class="col-md-6 col-lg-4">
+
+                        <div class="community-post-card">
+
+                            <div class="post-top">
+
+                                <div class="post-avatar">
+                                    🎮
+                                </div>
+
+                                <div>
+
+                                    <h4>
+                                        Gaming Discussion
+                                    </h4>
+
+                                    <span>
+                                        GameZone Community
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                What games are you currently playing?
+                                Share your favorite games with the community.
+                            </p>
+
+                            <div class="post-footer">
+                                💬 Community Discussion
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <div class="col-md-6 col-lg-4">
+
+                        <div class="community-post-card">
+
+                            <div class="post-top">
+
+                                <div class="post-avatar">
+                                    🏆
+                                </div>
+
+                                <div>
+
+                                    <h4>
+                                        Tournament Discussion
+                                    </h4>
+
+                                    <span>
+                                        GameZone Events
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                Interested in joining the next tournament?
+                                Check the Tournaments page for upcoming events.
+                            </p>
+
+                            <div class="post-footer">
+                                🏆 Tournament Community
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- POST 3 -->
+
+                    <div class="col-md-6 col-lg-4">
+
+                        <div class="community-post-card">
+
+                            <div class="post-top">
+
+                                <div class="post-avatar">
+                                    👥
+                                </div>
+
+                                <div>
+
+                                    <h4>
+                                        Find Teammates
+                                    </h4>
+
+                                    <span>
+                                        GameZone Players
+                                    </span>
+
+                                </div>
+
+                            </div>
+
+                            <p>
+                                Looking for people to play with?
+                                Use Find Players to start a discussion.
+                            </p>
+
+                            <div class="post-footer">
+                                🎮 Looking for Players
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <footer class="game-footer">
+
+        <div class="container">
+
+            <div class="footer-logo">
+                🎮 GameZone
+            </div>
+
+            <p>
+                Your ultimate hub for games, gaming news,
+                tournaments, and community.
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 GameZone. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameZone - Player Login</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+
+        .auth-page {
+            min-height: calc(100vh - 70px);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 60px 20px;
+
+            background:
+                radial-gradient(
+                    circle at 20% 40%,
+                    rgba(124, 58, 237, 0.16),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at 80% 60%,
+                    rgba(37, 99, 235, 0.16),
+                    transparent 35%
+                ),
+                #080b16;
+        }
+
+        .auth-card {
+            width: 100%;
+            max-width: 480px;
+
+            padding: 35px;
+
+            background: #111827;
+
+            border: 1px solid rgba(148, 163, 184, 0.18);
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .auth-icon {
+            width: 70px;
+            height: 70px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin: 0 auto 18px;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(37, 99, 235, 0.22),
+                    rgba(124, 58, 237, 0.22)
+                );
+
+            border: 1px solid rgba(139, 92, 246, 0.3);
+
+            font-size: 2rem;
+        }
+
+        .auth-card h1 {
+            color: #ffffff;
+
+            font-size: 2rem;
+
+            font-weight: 800;
+
+            text-align: center;
+
+            margin-bottom: 8px;
+        }
+
+        .auth-subtitle {
+            color: #94a3b8;
+
+            text-align: center;
+
+            margin-bottom: 30px;
+        }
+
+        .auth-card .form-label {
+            color: #cbd5e1;
+
+            font-weight: 600;
+        }
+
+        .auth-card .form-control {
+            background: #080b16;
+
+            color: #ffffff;
+
+            border: 1px solid #334155;
+
+            padding: 12px 14px;
+
+            border-radius: 9px;
+        }
+
+        .auth-card .form-control::placeholder {
+            color: #64748b;
+        }
+
+        .auth-card .form-control:focus {
+            background: #080b16;
+
+            color: #ffffff;
+
+            border-color: #7c3aed;
+
+            box-shadow:
+                0 0 0 0.2rem rgba(124, 58, 237, 0.15);
+        }
+
+        .auth-submit {
+            width: 100%;
+
+            padding: 12px 20px;
+
+            border: none;
+
+            border-radius: 9px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #2563eb,
+                    #7c3aed
+                );
+
+            color: white;
+
+            font-weight: bold;
+
+            transition: 0.2s ease;
+        }
+
+        .auth-submit:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 22px rgba(79, 70, 229, 0.35);
+        }
+
+        .auth-divider {
+            height: 1px;
+
+            background: rgba(255, 255, 255, 0.1);
+
+            margin: 28px 0;
+        }
+
+        .auth-link-area {
+            text-align: center;
+
+            color: #94a3b8;
+        }
+
+        .auth-link {
+            color: #a78bfa;
+
+            font-weight: 600;
+
+            text-decoration: none;
+        }
+
+        .auth-link:hover {
+            color: #c4b5fd;
+
+            text-decoration: underline;
+        }
+
+        .admin-area {
+            text-align: center;
+
+            padding-top: 5px;
+        }
+
+        .admin-area p {
+            color: #64748b;
+
+            margin-bottom: 10px;
+        }
+
+        .admin-button {
+            display: inline-block;
+
+            padding: 9px 16px;
+
+            border: 1px solid #475569;
+
+            border-radius: 8px;
+
+            color: #ffffff;
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            transition: 0.2s ease;
+        }
+
+        .admin-button:hover {
+            background: rgba(255, 255, 255, 0.07);
+
+            border-color: #7c3aed;
+
+            color: #ffffff;
+        }
+
+        .register-card {
+            margin-top: 25px;
+
+            padding-top: 25px;
+
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .register-card h2 {
+            color: #ffffff;
+
+            font-size: 1.4rem;
+
+            font-weight: 700;
+
+            text-align: center;
+
+            margin-bottom: 20px;
+        }
+
+        .auth-message {
+            margin-top: 15px;
+        }
+
+        @media (max-width: 576px) {
+
+            .auth-card {
+                padding: 25px 20px;
+            }
+
+            .auth-card h1 {
+                font-size: 1.7rem;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
+
+        <div class="container">
+
+            <a class="navbar-brand game-logo" href="index.html">
+                🎮 <span>Game</span>Zone
+            </a>
+
+            <div class="ms-auto">
+
+                <a
+                    href="index.html"
+                    class="btn btn-outline-light btn-sm"
+                >
+                    Back to Home
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <main class="auth-page">
+
+        <div class="auth-card">
+
+
+            <div class="auth-icon">
+                🎮
+            </div>
+
+
+            <div class="section-label text-center">
+                GAMEZONE ACCOUNT
+            </div>
+
+
+            <h1>
+                Player Login
+            </h1>
+
+
+            <p class="auth-subtitle">
+                Login to access your GameZone player account.
+            </p>
+
+
+
+            <form id="loginForm">
+
+                <div class="mb-3">
+
+                    <label
+                        for="loginEmail"
+                        class="form-label"
+                    >
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="loginEmail"
+                        class="form-control"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="mb-4">
+
+                    <label
+                        for="loginPassword"
+                        class="form-label"
+                    >
+                        Password
+                    </label>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        class="form-control"
+                        placeholder="Enter your password"
+                        required
+                    >
+
+                </div>
+
+
+                <button
+                    type="submit"
+                    class="auth-submit"
+                >
+                    Login as Player →
+                </button>
+
+
+                <div
+                    id="loginMessage"
+                    class="auth-message d-none"
+                ></div>
+
+            </form>
+
+
+
+            <div class="auth-divider"></div>
+
+
+            <div class="auth-link-area">
+
+                <p class="mb-2">
+                    Don't have a player account?
+                </p>
+
+                <a
+                    href="#"
+                    id="showRegister"
+                    class="auth-link"
+                >
+                    Create a Player Account
+                </a>
+
+            </div>
+
+
+            <div
+                id="registerCard"
+                class="register-card d-none"
+            >
+
+                <h2>
+                    Create Player Account
+                </h2>
+
+
+                <form id="registerForm">
+
+                    <div class="mb-3">
+
+                        <label
+                            for="registerName"
+                            class="form-label"
+                        >
+                            Gamer Name
+                        </label>
+
+                        <input
+                            type="text"
+                            id="registerName"
+                            class="form-control"
+                            placeholder="Enter your gamer name"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            for="registerEmail"
+                            class="form-label"
+                        >
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            id="registerEmail"
+                            class="form-control"
+                            placeholder="Enter your email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="mb-3">
+
+                        <label
+                            for="registerPassword"
+                            class="form-label"
+                        >
+                            Password
+                        </label>
+
+                        <input
+                            type="password"
+                            id="registerPassword"
+                            class="form-control"
+                            placeholder="Create a password"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+                        Create Account →
+                    </button>
+
+
+                    <div
+                        id="registerMessage"
+                        class="auth-message d-none"
+                    ></div>
+
+                </form>
+
+            </div>
+
+
+
+            <div class="auth-divider"></div>
+
+
+            <div class="admin-area">
+
+                <p>
+                    Are you a GameZone administrator?
+                </p>
+
+                <a
+                    href="admin-login.html"
+                    class="admin-button"
+                >
+                    Admin Login
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+
+    <footer class="game-footer">
+
+        <div class="container">
+
+            <div class="footer-logo">
+                🎮 GameZone
+            </div>
+
+            <p>
+                Your ultimate hub for games, gaming news,
+                tournaments, and community.
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 GameZone. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>

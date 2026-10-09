@@ -1,0 +1,735 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GameZone - News</title>
+
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+
+        .news-visual {
+            height: 220px;
+            position: relative;
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .news-image {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            z-index: 1;
+            transition: transform 0.35s ease;
+        }
+
+        .modern-news-card:hover .news-image {
+            transform: scale(1.04);
+        }
+
+        .news-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                180deg,
+                rgba(8, 11, 22, 0.02),
+                rgba(8, 11, 22, 0.42)
+            );
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .news-category-badge {
+            z-index: 3;
+        }
+
+        /* RESPONSIVE IMAGE SIZES */
+
+        @media (max-width: 768px) {
+            .news-visual {
+                height: 200px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .news-visual {
+                height: 185px;
+            }
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
+
+        <div class="container">
+
+            <a class="navbar-brand game-logo" href="index.html">
+                🎮 <span>Game</span>Zone
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarNav">
+
+                <ul class="navbar-nav ms-auto">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="games.html">
+                            Games
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="news.html">
+                            News
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="tournaments.html">
+                            Tournaments
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="community.html">
+                            Community
+                        </a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">
+                            Contact
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <section class="news-header">
+
+        <div class="container text-center">
+
+            <h1>
+                Gaming News
+            </h1>
+
+            <p>
+                Stay updated with gaming events, esports, and game updates.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <section class="news-section">
+
+        <div class="container">
+
+
+            <div class="news-filter-box">
+
+                <div>
+
+                    <label for="newsFilter">
+                        Filter News
+                    </label>
+
+                    <select
+                        id="newsFilter"
+                        class="form-select"
+                    >
+
+                        <option value="all">
+                            All News
+                        </option>
+
+                        <option value="esports">
+                            Esports
+                        </option>
+
+                        <option value="updates">
+                            Game Updates
+                        </option>
+
+                        <option value="events">
+                            Events
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+
+            <!-- NEWS CARDS -->
+
+            <div class="row g-4" id="newsContainer">
+
+
+                <div
+                    class="col-md-6 col-lg-4 news-card"
+                    data-category="esports"
+                >
+
+                    <article class="modern-news-card">
+
+                        <div class="news-visual news-esports">
+
+                            <img
+                                src="images/esports-season-news.jpg"
+                                alt="Esports tournament and competitive gaming"
+                                class="news-image"
+                            >
+
+                            <span class="news-category-badge">
+                                ESPORTS
+                            </span>
+
+                        </div>
+
+                        <div class="news-content">
+
+                            <div class="news-date">
+                                October 2026
+                            </div>
+
+                            <h3>
+                                GameZone Esports Tournament Season
+                            </h3>
+
+                            <p class="news-preview">
+                                GameZone prepares for a new season of
+                                competitive gaming tournaments.
+                            </p>
+
+                            <div class="news-details">
+
+                                <p>
+                                    The upcoming season will feature competitions
+                                    across the games listed on GameZone, giving
+                                    players a place to discover events that match
+                                    their interests. Each tournament card includes
+                                    the game title, scheduled date, player or team
+                                    capacity, and a registration button so visitors
+                                    can review the details before signing up.
+                                </p>
+
+                                <p>
+                                    Whether you enjoy fighting games, tactical
+                                    shooters, sports titles, or team-based action,
+                                    check the Tournaments page to see which events
+                                    are listed. Players can compare the available
+                                    competitions and choose one that suits their
+                                    preferred game and experience level. The
+                                    schedule shown on this website is sample
+                                    project content and can be updated as the
+                                    GameZone event list changes.
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="read-more-btn"
+                            >
+                                Read More →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div
+                    class="col-md-6 col-lg-4 news-card"
+                    data-category="updates"
+                >
+
+                    <article class="modern-news-card">
+
+                        <div class="news-visual news-updates">
+
+                            <img
+                                src="images/new-games-news.jpg"
+                                alt="Collection of games featured in GameZone"
+                                class="news-image"
+                            >
+
+                            <span class="news-category-badge">
+                                UPDATES
+                            </span>
+
+                        </div>
+
+                        <div class="news-content">
+
+                            <div class="news-date">
+                                October 2026
+                            </div>
+
+                            <h3>
+                                New Games Added to GameZone
+                            </h3>
+
+                            <p class="news-preview">
+                                More popular games are now featured
+                                in the GameZone library.
+                            </p>
+
+                            <div class="news-details">
+
+                                <p>
+                                    The GameZone library highlights titles across
+                                    fighting, shooter, action, and sports genres.
+                                    Each game card includes its cover image, a
+                                    short description, and a genre label to help
+                                    visitors decide what they want to explore.
+                                    The goal is to make it easier for players to
+                                    browse different types of games in one place.
+                                </p>
+
+                                <p>
+                                    You can use the search box to look for a
+                                    specific title or choose a genre from the
+                                    filter menu to narrow the list. The Favorite
+                                    control also lets you save games in your
+                                    browser, making it easier to find the titles
+                                    you like when you return to the site on the
+                                    same device. More titles and descriptions
+                                    can be added to the library as the project
+                                    continues to develop.
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="read-more-btn"
+                            >
+                                Read More →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div
+                    class="col-md-6 col-lg-4 news-card"
+                    data-category="events"
+                >
+
+                    <article class="modern-news-card">
+
+                        <div class="news-visual news-events">
+
+                            <img
+                                src="images/gaming-events-news.jpg"
+                                alt="Gaming event venue and esports stage"
+                                class="news-image"
+                            >
+
+                            <span class="news-category-badge">
+                                EVENTS
+                            </span>
+
+                        </div>
+
+                        <div class="news-content">
+
+                            <div class="news-date">
+                                October 2026
+                            </div>
+
+                            <h3>
+                                Upcoming GameZone Events
+                            </h3>
+
+                            <p class="news-preview">
+                                Check out the latest community and
+                                gaming events.
+                            </p>
+
+                            <div class="news-details">
+
+                                <p>
+                                    The Tournaments page brings the listed
+                                    GameZone events together in one place.
+                                    Each tournament card shows which game
+                                    it is for, its scheduled date, and whether
+                                    the listed limit is for individual players
+                                    or teams. This helps visitors compare
+                                    events before deciding where to participate.
+                                </p>
+
+                                <p>
+                                    Select Register Now to open the registration
+                                    form, enter your gamer name and email,
+                                    choose the event, and provide your gaming
+                                    experience level. Before submitting, review
+                                    the tournament name and the information
+                                    displayed on the card. The dates and event
+                                    limits on this website are demonstration
+                                    content for the project and should be updated
+                                    if the event schedule changes.
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="read-more-btn"
+                            >
+                                Read More →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div
+                    class="col-md-6 col-lg-4 news-card"
+                    data-category="esports"
+                >
+
+                    <article class="modern-news-card">
+
+                        <div class="news-visual news-championship">
+
+                            <img
+                                src="images/gaming-community-news.jpg"
+                                alt="Players enjoying competitive gaming together"
+                                class="news-image"
+                            >
+
+                            <span class="news-category-badge">
+                                ESPORTS
+                            </span>
+
+                        </div>
+
+                        <div class="news-content">
+
+                            <div class="news-date">
+                                October 2026
+                            </div>
+
+                            <h3>
+                                Competitive Gaming Community Grows
+                            </h3>
+
+                            <p class="news-preview">
+                                More players are joining the GameZone
+                                competitive gaming community.
+                            </p>
+
+                            <div class="news-details">
+
+                                <p>
+                                    Competitive gaming is not only about
+                                    winning; it is also a way for players to
+                                    meet others who enjoy the same games.
+                                    GameZone's Community page provides
+                                    General Chat for open discussions and
+                                    Find Players for people who want to
+                                    talk about teammates and playing together.
+                                    These features give visitors a place to
+                                    share gaming-related messages.
+                                </p>
+
+                                <p>
+                                    Visitors can enter a username and share
+                                    a message in the available chat area.
+                                    Players can discuss their favorite games,
+                                    ask questions, and look for people with
+                                    similar interests. For this prototype,
+                                    community messages are saved in the
+                                    current browser's local storage. This
+                                    demonstrates the chat interface, but it
+                                    is not a shared live chat service between
+                                    different users or devices.
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="read-more-btn"
+                            >
+                                Read More →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div
+                    class="col-md-6 col-lg-4 news-card"
+                    data-category="updates"
+                >
+
+                    <article class="modern-news-card">
+
+                        <div class="news-visual news-community">
+
+                            <img
+                                src="images/gamezone-improvements-news.jpg"
+                                alt="GameZone website interface and design"
+                                class="news-image"
+                            >
+
+                            <span class="news-category-badge">
+                                UPDATES
+                            </span>
+
+                        </div>
+
+                        <div class="news-content">
+
+                            <div class="news-date">
+                                October 2026
+                            </div>
+
+                            <h3>
+                                GameZone Website Improvements
+                            </h3>
+
+                            <p class="news-preview">
+                                New features and interface improvements
+                                continue to be added to GameZone.
+                            </p>
+
+                            <div class="news-details">
+
+                                <p>
+                                    The GameZone interface has been updated
+                                    with a consistent dark theme, game artwork,
+                                    clearer cards, and layouts that adapt to
+                                    different screen sizes. These visual changes
+                                    help the pages feel connected while making
+                                    important information, such as game genres,
+                                    news categories, and tournament dates,
+                                    easier to scan.
+                                </p>
+
+                                <p>
+                                    The site also brings several interactive
+                                    features together: game search and genre
+                                    filters, news category filtering, expandable
+                                    article details, player login and registration,
+                                    tournament registration, a contact form,
+                                    and community chat. Together, these features
+                                    demonstrate how HTML, CSS, JavaScript,
+                                    Bootstrap, and browser storage work together
+                                    to create a website with multiple connected
+                                    pages and interactive functions.
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="read-more-btn"
+                            >
+                                Read More →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+                <div
+                    class="col-md-6 col-lg-4 news-card"
+                    data-category="events"
+                >
+
+                    <article class="modern-news-card">
+
+                        <div class="news-visual news-tournament">
+
+                            <img
+                                src="images/tournament-registration-news.jpg"
+                                alt="Gaming tournament and player registration"
+                                class="news-image"
+                            >
+
+                            <span class="news-category-badge">
+                                EVENTS
+                            </span>
+
+                        </div>
+
+                        <div class="news-content">
+
+                            <div class="news-date">
+                                October 2026
+                            </div>
+
+                            <h3>
+                                Tournament Registration Now Available
+                            </h3>
+
+                            <p class="news-preview">
+                                Players can register for selected
+                                GameZone tournaments.
+                            </p>
+
+                            <div class="news-details">
+
+                                <p>
+                                    The tournament registration form lets
+                                    players select one of the listed GameZone
+                                    events and provide the information needed
+                                    for the demonstration, including gamer name,
+                                    email address, tournament choice, and gaming
+                                    experience. Required fields help prevent
+                                    incomplete submissions, and a confirmation
+                                    message appears after a valid submission
+                                    so visitors know the form was processed.
+                                </p>
+
+                                <p>
+                                    Before submitting, check the tournament
+                                    name and date on its card and make sure
+                                    your details are correct. Players should
+                                    also review the selected event before
+                                    completing the form. In this project
+                                    version, registration records are stored
+                                    in the browser's local storage rather
+                                    than a central online database, so they
+                                    are intended for testing and presentation
+                                    rather than official tournament entry.
+                                </p>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="read-more-btn"
+                            >
+                                Read More →
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- NO NEWS MESSAGE -->
+
+            <div
+                id="noNews"
+                class="no-news"
+                style="display: none;"
+            >
+
+                <h4>
+                    No news found
+                </h4>
+
+                <p>
+                    Try selecting another category.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <footer class="game-footer">
+
+        <div class="container">
+
+            <div class="footer-logo">
+                🎮 GameZone
+            </div>
+
+            <p>
+                Your ultimate hub for games, gaming news,
+                tournaments, and community.
+            </p>
+
+            <div class="footer-line"></div>
+
+            <p class="copyright">
+                © 2026 GameZone. All rights reserved.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
