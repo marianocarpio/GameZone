@@ -1,21 +1,31 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>GameZone - Gaming Hub</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
     <link rel="stylesheet" href="css/style.css">
 
     <style>
+
         .game-cover {
             position: absolute;
             inset: 0;
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             display: block;
+            z-index: 1;
             transition: transform 0.35s ease;
         }
 
@@ -30,10 +40,151 @@
         .visual-title {
             z-index: 3;
         }
+
+
+        .featured-section .game-visual {
+            height: 250px;
+        }
+
+        .featured-section .game-card-top {
+            align-items: flex-start;
+            flex-wrap: wrap;
+        }
+
+        .featured-section .game-card-content p {
+            min-height: 75px;
+        }
+
+        .game-tag.moba {
+            background: rgba(65, 217, 242, 0.13);
+            color: #41d9f2;
+            border: 1px solid rgba(65, 217, 242, 0.35);
+        }
+
+        /* COLOR BACKGROUNDS */
+
+        .home-mlbb {
+            background: linear-gradient(135deg, #081c3b, #1466aa, #081329);
+        }
+
+        .home-pubg {
+            background: linear-gradient(135deg, #2e2115, #d39134, #15120f);
+        }
+
+        .home-dota {
+            background: linear-gradient(135deg, #160c0c, #922b24, #29100e);
+        }
+
+
+        .home-tournament-section {
+            padding: 70px 0;
+            background:
+                radial-gradient(
+                    circle at 15% 50%,
+                    rgba(124, 58, 237, 0.16),
+                    transparent 35%
+                ),
+                linear-gradient(135deg, #0b1020, #111536);
+            border-top: 1px solid rgba(255, 255, 255, 0.07);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .home-tournament-card {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+            padding: 35px;
+            background: rgba(17, 24, 39, 0.82);
+            border: 1px solid rgba(139, 92, 246, 0.25);
+            border-radius: 18px;
+        }
+
+        .home-tournament-text {
+            max-width: 680px;
+        }
+
+        .home-tournament-text h2 {
+            color: #ffffff;
+            font-size: clamp(1.7rem, 3vw, 2.35rem);
+            font-weight: 800;
+            margin: 10px 0 14px;
+        }
+
+        .home-tournament-text p {
+            color: #94a3b8;
+            line-height: 1.8;
+            margin: 0;
+        }
+
+        .home-tournament-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .home-tournament-actions a {
+            white-space: nowrap;
+        }
+
+        .home-secondary-btn {
+            display: inline-block;
+            text-decoration: none;
+            color: #ffffff;
+            background: transparent;
+            border: 1px solid #475569;
+            padding: 13px 20px;
+            border-radius: 9px;
+            font-weight: 700;
+            transition: 0.2s ease;
+        }
+
+        .home-secondary-btn:hover {
+            color: #ffffff;
+            border-color: #8b5cf6;
+            background: rgba(124, 58, 237, 0.13);
+        }
+
+
+        @media (max-width: 768px) {
+            .featured-section .game-visual {
+                height: 230px;
+            }
+
+            .home-tournament-card {
+                align-items: flex-start;
+                flex-direction: column;
+                padding: 26px;
+            }
+
+            .home-tournament-actions {
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .featured-section .game-visual {
+                height: 215px;
+            }
+
+            .home-tournament-card {
+                padding: 22px;
+            }
+
+            .home-tournament-actions {
+                flex-direction: column;
+            }
+
+            .home-tournament-actions a {
+                width: 100%;
+                text-align: center;
+            }
+        }
     </style>
 </head>
 
 <body>
+
 
     <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
         <div class="container">
@@ -83,8 +234,10 @@
 
                 </ul>
             </div>
+
         </div>
     </nav>
+
 
 
     <section class="home-hero">
@@ -94,15 +247,19 @@
 
         <div class="container hero-content">
 
+            <div class="hero-badge">
+                YOUR GAMING COMMUNITY
+            </div>
+
             <h1>
                 Welcome to
                 <span>GameZone</span>
             </h1>
 
             <p>
-                Discover games, follow gaming news,
-                join tournaments, and connect with
-                other players.
+                Discover your favorite games, explore gaming news,
+                compete in tournaments, and connect with other players
+                in one gaming hub.
             </p>
 
             <div class="hero-buttons">
@@ -118,10 +275,13 @@
             </div>
 
         </div>
+
     </section>
 
 
+
     <section class="featured-section">
+
         <div class="container">
 
             <div class="section-heading">
@@ -133,26 +293,29 @@
                 <h2>Featured Games</h2>
 
                 <p>
-                    Explore some of the games available
-                    on GameZone.
+                    Discover some of the featured games on GameZone,
+                    from competitive fighting games to popular mobile titles.
                 </p>
 
             </div>
 
+
             <div class="row g-4">
+
 
 
                 <div class="col-md-6 col-lg-4">
                     <div class="modern-game-card">
 
                         <div
-                            class="game-visual"
+                            class="game-visual game-tekken"
                             style="background: linear-gradient(135deg, #22040d, #7f1236, #160816);"
                         >
                             <img
                                 src="images/tekken8.jpg"
-                                alt="Tekken 8"
+                                alt="Tekken 8 game artwork"
                                 class="game-cover"
+                                onerror="this.style.display='none'"
                             >
 
                             <div class="visual-overlay"></div>
@@ -170,8 +333,8 @@
                             </div>
 
                             <p>
-                                A competitive fighting game featuring
-                                intense battles and a variety of fighters.
+                                Enter intense one-on-one battles with unique
+                                fighters, powerful combos, and competitive mechanics.
                             </p>
 
                             <a
@@ -186,17 +349,19 @@
                 </div>
 
 
+
                 <div class="col-md-6 col-lg-4">
                     <div class="modern-game-card">
 
                         <div
-                            class="game-visual"
+                            class="game-visual game-valorant"
                             style="background: linear-gradient(135deg, #18070b, #7f1d2d, #111827);"
                         >
                             <img
                                 src="images/valorant.jpg"
-                                alt="Valorant"
+                                alt="Valorant game artwork"
                                 class="game-cover"
+                                onerror="this.style.display='none'"
                             >
 
                             <div class="visual-overlay"></div>
@@ -214,8 +379,8 @@
                             </div>
 
                             <p>
-                                A tactical competitive shooter focused
-                                on teamwork, strategy, and precision.
+                                Use agent abilities, precise aim, and teamwork
+                                to win tactical round-based matches.
                             </p>
 
                             <a
@@ -230,17 +395,62 @@
                 </div>
 
 
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-game-card">
+
+                        <div class="game-visual home-mlbb">
+                            <img
+                                src="images/mobile-legends.jpg"
+                                alt="Mobile Legends Bang Bang game artwork"
+                                class="game-cover"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <div class="visual-overlay"></div>
+
+                            <div class="visual-title">
+                                MOBILE LEGENDS
+                            </div>
+                        </div>
+
+                        <div class="game-card-content">
+
+                            <div class="game-card-top">
+                                <h3>Mobile Legends: Bang Bang</h3>
+                                <span class="game-tag moba">MOBA</span>
+                            </div>
+
+                            <p>
+                                Pick your hero, work with your five-player team,
+                                and fight to destroy the enemy base.
+                            </p>
+
+                            <a
+                                href="game-details.html?game=mobile-legends"
+                                class="game-button"
+                            >
+                                View Game →
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
                 <div class="col-md-6 col-lg-4">
                     <div class="modern-game-card">
 
                         <div
-                            class="game-visual"
+                            class="game-visual game-marvel"
                             style="background: linear-gradient(135deg, #071a3d, #1d4ed8, #450a0a);"
                         >
                             <img
                                 src="images/marvel-rivals.jpg"
-                                alt="Marvel Rivals"
+                                alt="Marvel Rivals game artwork"
                                 class="game-cover"
+                                onerror="this.style.display='none'"
                             >
 
                             <div class="visual-overlay"></div>
@@ -258,8 +468,8 @@
                             </div>
 
                             <p>
-                                Team-based action featuring popular
-                                Marvel heroes and villains.
+                                Team up as Marvel heroes and villains
+                                in fast-paced objective-based battles.
                             </p>
 
                             <a
@@ -274,129 +484,82 @@
                 </div>
 
 
+
                 <div class="col-md-6 col-lg-4">
                     <div class="modern-game-card">
 
-                        <div
-                            class="game-visual"
-                            style="background: linear-gradient(135deg, #3f0b0b, #b91c1c, #171717);"
-                        >
+                        <div class="game-visual home-pubg">
                             <img
-                                src="images/nba2k.jpg"
-                                alt="NBA 2K26"
+                                src="images/pubg-mobile.jpg"
+                                alt="PUBG Mobile game artwork"
                                 class="game-cover"
+                                onerror="this.style.display='none'"
                             >
 
                             <div class="visual-overlay"></div>
 
                             <div class="visual-title">
-                                NBA 2K26
+                                PUBG MOBILE
                             </div>
                         </div>
 
                         <div class="game-card-content">
 
                             <div class="game-card-top">
-                                <h3>NBA 2K26</h3>
-                                <span class="game-tag sports">Sports</span>
-                            </div>
-
-                            <p>
-                                A basketball game featuring competitive
-                                matches, teams, players, and game modes.
-                            </p>
-
-                            <a
-                                href="game-details.html?game=nba2k"
-                                class="game-button"
-                            >
-                                View Game →
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-md-6 col-lg-4">
-                    <div class="modern-game-card">
-
-                        <div
-                            class="game-visual"
-                            style="background: linear-gradient(135deg, #431407, #c2410c, #172554);"
-                        >
-                            <img
-                                src="images/street-fighter-6.jpg"
-                                alt="Street Fighter 6"
-                                class="game-cover"
-                            >
-
-                            <div class="visual-overlay"></div>
-
-                            <div class="visual-title">
-                                STREET FIGHTER 6
-                            </div>
-                        </div>
-
-                        <div class="game-card-content">
-
-                            <div class="game-card-top">
-                                <h3>Street Fighter 6</h3>
-                                <span class="game-tag fighting">Fighting</span>
-                            </div>
-
-                            <p>
-                                A fighting game where players compete
-                                using unique characters and abilities.
-                            </p>
-
-                            <a
-                                href="game-details.html?game=street-fighter-6"
-                                class="game-button"
-                            >
-                                View Game →
-                            </a>
-
-                        </div>
-                    </div>
-                </div>
-
-
-                <!-- CALL OF DUTY -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="modern-game-card">
-
-                        <div
-                            class="game-visual"
-                            style="background: linear-gradient(135deg, #111827, #374151, #020617);"
-                        >
-                            <img
-                                src="images/call-of-duty.jpg"
-                                alt="Call of Duty"
-                                class="game-cover"
-                            >
-
-                            <div class="visual-overlay"></div>
-
-                            <div class="visual-title">
-                                CALL OF DUTY
-                            </div>
-                        </div>
-
-                        <div class="game-card-content">
-
-                            <div class="game-card-top">
-                                <h3>Call of Duty</h3>
+                                <h3>PUBG Mobile</h3>
                                 <span class="game-tag shooter">Shooter</span>
                             </div>
 
                             <p>
-                                An action-packed shooter featuring
-                                competitive multiplayer gameplay.
+                                Search for equipment, coordinate with your squad,
+                                and survive the changing battlefield.
                             </p>
 
                             <a
-                                href="game-details.html?game=call-of-duty"
+                                href="game-details.html?game=pubg-mobile"
+                                class="game-button"
+                            >
+                                View Game →
+                            </a>
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-game-card">
+
+                        <div class="game-visual home-dota">
+                            <img
+                                src="images/dota-2.jpg"
+                                alt="Dota 2 game artwork"
+                                class="game-cover"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <div class="visual-overlay"></div>
+
+                            <div class="visual-title">
+                                DOTA 2
+                            </div>
+                        </div>
+
+                        <div class="game-card-content">
+
+                            <div class="game-card-top">
+                                <h3>Dota 2</h3>
+                                <span class="game-tag moba">MOBA</span>
+                            </div>
+
+                            <p>
+                                Choose your hero, plan your strategy,
+                                and cooperate to destroy the enemy Ancient.
+                            </p>
+
+                            <a
+                                href="game-details.html?game=dota-2"
                                 class="game-button"
                             >
                                 View Game →
@@ -409,36 +572,97 @@
 
             </div>
 
+
+
             <div class="view-all-wrapper">
+
                 <a href="games.html" class="view-all-button">
-                    View All Games →
+                    View All 12 Games →
                 </a>
+
             </div>
 
         </div>
+
     </section>
 
 
-    <footer class="game-footer">
+
+    <section class="home-tournament-section">
+
         <div class="container">
 
-            <div class="footer-logo">
-                🎮 GameZone
+            <div class="home-tournament-card">
+
+                <div class="home-tournament-text">
+
+                    <div class="section-label">
+                        🏆 COMPETE WITH GAMEZONE
+                    </div>
+
+                    <h2>
+                        Ready to Enter the Competition?
+                    </h2>
+
+                    <p>
+                        Explore the GameZone tournament lineup, check the
+                        featured events, and register for a competition that
+                        matches your favorite game.
+                    </p>
+
+                </div>
+
+                <div class="home-tournament-actions">
+
+                    <a
+                        href="tournaments.html"
+                        class="btn hero-main-btn"
+                    >
+                        Browse Tournaments →
+                    </a>
+
+                    <a
+                        href="community.html"
+                        class="home-secondary-btn"
+                    >
+                        Join the Community
+                    </a>
+
+                </div>
+
             </div>
 
+        </div>
+
+    </section>
+
+
+
+    <footer class="game-footer">
+
+        <div class="container">
+
+        <div class="footer-logo">
+            🎮 <span>Game</span>Zone
+        
+        </div>
+
             <p>
-                Your ultimate hub for games,
-                gaming news, tournaments,
-                and community.
+                Your ultimate hub for games, gaming news,
+                tournaments, and community.
             </p>
 
             <div class="footer-line"></div>
+
+            <p class="developer-credit">Website Developed by Mariano Carpio</p>
+
 
             <p class="copyright">
                 © 2026 GameZone. All rights reserved.
             </p>
 
         </div>
+
     </footer>
 
 

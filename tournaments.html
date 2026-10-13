@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -51,10 +52,48 @@
         .tournament-status {
             z-index: 3;
         }
+
+        /* Backgrounds for the newly added tournaments */
+        .tournament-visual.tournament-mlbb {
+            background: linear-gradient(135deg, #081c3b, #1466aa, #081329);
+        }
+
+        .tournament-visual.tournament-codm {
+            background: linear-gradient(135deg, #292b2e, #a54e18, #171717);
+        }
+
+        .tournament-visual.tournament-pubg {
+            background: linear-gradient(135deg, #2e2115, #d39134, #15120f);
+        }
+
+        .tournament-visual.tournament-hok {
+            background: linear-gradient(135deg, #102d3f, #167d87, #101727);
+        }
+
+        .tournament-visual.tournament-freefire {
+            background: linear-gradient(135deg, #44130e, #d64b1d, #191119);
+        }
+
+        .tournament-visual.tournament-dota {
+            background: linear-gradient(135deg, #160c0c, #922b24, #29100e);
+        }
+
+        .tournament-icon {
+            position: relative;
+            z-index: 3;
+        }
+
+        .tournament-game.moba {
+            background: rgba(65, 217, 242, 0.13);
+            color: #41d9f2;
+            border: 1px solid rgba(65, 217, 242, 0.35);
+        }
     </style>
 </head>
 
 <body>
+
+    <!-- NAVIGATION -->
 
     <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
         <div class="container">
@@ -79,42 +118,29 @@
                 <ul class="navbar-nav ms-auto">
 
                     <li class="nav-item">
-                        <a class="nav-link" href="index.html">
-                            Home
-                        </a>
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="games.html">
-                            Games
-                        </a>
+                        <a class="nav-link" href="games.html">Games</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="news.html">
-                            News
-                        </a>
+                        <a class="nav-link" href="news.html">News</a>
                     </li>
 
                     <li class="nav-item">
-                        <a
-                            class="nav-link active"
-                            href="tournaments.html"
-                        >
+                        <a class="nav-link active" href="tournaments.html">
                             Tournaments
                         </a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="community.html">
-                            Community
-                        </a>
+                        <a class="nav-link" href="community.html">Community</a>
                     </li>
 
                     <li class="nav-item">
-                        <a class="nav-link" href="contact.html">
-                            Contact
-                        </a>
+                        <a class="nav-link" href="contact.html">Contact</a>
                     </li>
 
                 </ul>
@@ -122,6 +148,9 @@
 
         </div>
     </nav>
+
+
+    <!-- PAGE HEADER -->
 
     <section class="tournaments-header">
         <div class="container text-center">
@@ -135,6 +164,8 @@
         </div>
     </section>
 
+
+    <!-- TOURNAMENT LIST -->
 
     <section class="tournaments-section">
         <div class="container">
@@ -152,8 +183,10 @@
 
             <div class="row g-4">
 
-                <div class="col-md-6 col-lg-4">
 
+                <!-- 1. TEKKEN 8 -->
+
+                <div class="col-md-6 col-lg-4">
                     <div class="modern-tournament-card">
 
                         <div class="tournament-visual tournament-tekken">
@@ -204,13 +237,13 @@
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="col-md-6 col-lg-4">
 
+                <!-- 2. VALORANT -->
+
+                <div class="col-md-6 col-lg-4">
                     <div class="modern-tournament-card">
 
                         <div class="tournament-visual tournament-valorant">
@@ -261,13 +294,13 @@
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="col-md-6 col-lg-4">
 
+                <!-- 3. MARVEL RIVALS -->
+
+                <div class="col-md-6 col-lg-4">
                     <div class="modern-tournament-card">
 
                         <div class="tournament-visual tournament-marvel">
@@ -318,13 +351,13 @@
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="col-md-6 col-lg-4">
 
+                <!-- 4. NBA 2K -->
+
+                <div class="col-md-6 col-lg-4">
                     <div class="modern-tournament-card">
 
                         <div class="tournament-visual tournament-nba">
@@ -375,13 +408,13 @@
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="col-md-6 col-lg-4">
 
+                <!-- 5. STREET FIGHTER 6 -->
+
+                <div class="col-md-6 col-lg-4">
                     <div class="modern-tournament-card">
 
                         <div class="tournament-visual tournament-streetfighter">
@@ -432,13 +465,13 @@
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
 
-                <div class="col-md-6 col-lg-4">
 
+                <!-- 6. CALL OF DUTY -->
+
+                <div class="col-md-6 col-lg-4">
                     <div class="modern-tournament-card">
 
                         <div class="tournament-visual tournament-cod">
@@ -489,12 +522,362 @@
                             </button>
 
                         </div>
-
                     </div>
-
                 </div>
 
+
+                <!-- 7. MOBILE LEGENDS: BANG BANG -->
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-mlbb">
+
+                            <img
+                                src="images/mobile-legends.jpg"
+                                alt="Mobile Legends tournament"
+                                class="tournament-cover"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game moba">
+                                MOBILE LEGENDS: BANG BANG
+                            </span>
+
+                            <h3>GameZone MLBB Championship</h3>
+
+                            <p>
+                                Gather your five-player squad and compete
+                                in a Mobile Legends team challenge.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Dec 13, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>16 Teams</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone MLBB Championship"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 8. CALL OF DUTY: MOBILE -->
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-codm">
+
+                            <img
+                                src="images/call-of-duty-mobile.jpg"
+                                alt="Call of Duty Mobile tournament"
+                                class="tournament-cover"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game shooter">
+                                CALL OF DUTY: MOBILE
+                            </span>
+
+                            <h3>GameZone COD Mobile Clash</h3>
+
+                            <p>
+                                Team up for a mobile shooter challenge
+                                featuring fast-paced multiplayer matches.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Dec 20, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>16 Teams</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone COD Mobile Clash"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 9. PUBG MOBILE -->
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-pubg">
+
+                            <img
+                                src="images/pubg-mobile.jpg"
+                                alt="PUBG Mobile tournament"
+                                class="tournament-cover"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game shooter">
+                                PUBG MOBILE
+                            </span>
+
+                            <h3>GameZone PUBG Mobile Battle</h3>
+
+                            <p>
+                                Coordinate with your squad, survive
+                                the battlefield, and aim for victory.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Dec 27, 2026</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>16 Squads</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone PUBG Mobile Battle"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 10. HONOR OF KINGS -->
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-hok">
+
+                            <img
+                                src="images/honor-of-kings.jpg"
+                                alt="Honor of Kings tournament"
+                                class="tournament-cover"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game moba">
+                                HONOR OF KINGS
+                            </span>
+
+                            <h3>GameZone Honor of Kings Cup</h3>
+
+                            <p>
+                                Select your heroes, coordinate your
+                                team, and compete in arena matches.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Jan 3, 2027</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>16 Teams</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone Honor of Kings Cup"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 11. GARENA FREE FIRE -->
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-freefire">
+
+                            <img
+                                src="images/free-fire.jpg"
+                                alt="Garena Free Fire tournament"
+                                class="tournament-cover"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game shooter">
+                                GARENA FREE FIRE
+                            </span>
+
+                            <h3>GameZone Free Fire Showdown</h3>
+
+                            <p>
+                                Compete with your squad in a battle royale
+                                challenge and aim for the top position.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Jan 10, 2027</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>16 Squads</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone Free Fire Showdown"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- 12. DOTA 2 -->
+
+                <div class="col-md-6 col-lg-4">
+                    <div class="modern-tournament-card">
+
+                        <div class="tournament-visual tournament-dota">
+
+                            <img
+                                src="images/dota-2.jpg"
+                                alt="Dota 2 tournament"
+                                class="tournament-cover"
+                                onerror="this.style.display='none'"
+                            >
+
+                            <span class="tournament-status">
+                                OPEN
+                            </span>
+
+                        </div>
+
+                        <div class="tournament-content">
+
+                            <span class="tournament-game moba">
+                                DOTA 2
+                            </span>
+
+                            <h3>GameZone Dota 2 Champions Cup</h3>
+
+                            <p>
+                                Build your lineup, coordinate your strategy,
+                                and compete in team-based Dota 2 matches.
+                            </p>
+
+                            <div class="tournament-info">
+
+                                <div>
+                                    📅 <strong>Jan 17, 2027</strong>
+                                </div>
+
+                                <div>
+                                    👥 <strong>8 Teams</strong>
+                                </div>
+
+                            </div>
+
+                            <button
+                                type="button"
+                                class="register-btn tournament-button"
+                                data-tournament="GameZone Dota 2 Champions Cup"
+                            >
+                                Register Now →
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+
             </div>
+
+
+            <!-- PLAYER REGISTRATION -->
 
             <div class="registration-wrapper" id="registrationSection">
 
@@ -600,6 +983,30 @@
                                     GameZone COD Warfare
                                 </option>
 
+                                <option value="GameZone MLBB Championship">
+                                    GameZone MLBB Championship
+                                </option>
+
+                                <option value="GameZone COD Mobile Clash">
+                                    GameZone COD Mobile Clash
+                                </option>
+
+                                <option value="GameZone PUBG Mobile Battle">
+                                    GameZone PUBG Mobile Battle
+                                </option>
+
+                                <option value="GameZone Honor of Kings Cup">
+                                    GameZone Honor of Kings Cup
+                                </option>
+
+                                <option value="GameZone Free Fire Showdown">
+                                    GameZone Free Fire Showdown
+                                </option>
+
+                                <option value="GameZone Dota 2 Champions Cup">
+                                    GameZone Dota 2 Champions Cup
+                                </option>
+
                             </select>
 
                         </div>
@@ -689,13 +1096,17 @@
         </div>
     </section>
 
+
+    <!-- FOOTER -->
+
     <footer class="game-footer">
 
         <div class="container">
 
-            <div class="footer-logo">
-                🎮 GameZone
-            </div>
+        <div class="footer-logo">
+                🎮 <span>Game</span>Zone
+        
+        </div>
 
             <p>
                 Your ultimate hub for games, gaming news,
@@ -703,6 +1114,9 @@
             </p>
 
             <div class="footer-line"></div>
+
+            <p class="developer-credit"> Website Developed by Mariano Carpio</p>
+
 
             <p class="copyright">
                 © 2026 GameZone. All rights reserved.

@@ -1,8 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Admin Login - GameZone</title>
 
     <link
@@ -15,11 +18,22 @@
     <style>
         body {
             min-height: 100vh;
+
             background:
-                radial-gradient(circle at top left, rgba(124, 58, 237, 0.18), transparent 35%),
-                radial-gradient(circle at bottom right, rgba(59, 130, 246, 0.15), transparent 35%),
+                radial-gradient(
+                    circle at top left,
+                    rgba(124, 58, 237, 0.18),
+                    transparent 35%
+                ),
+                radial-gradient(
+                    circle at bottom right,
+                    rgba(59, 130, 246, 0.15),
+                    transparent 35%
+                ),
                 #080b16;
+
             color: #ffffff;
+
             display: flex;
             flex-direction: column;
         }
@@ -35,23 +49,33 @@
         .admin-login-card {
             width: 100%;
             max-width: 460px;
+
             background: rgba(17, 24, 39, 0.96);
+
             border: 1px solid rgba(139, 92, 246, 0.25);
             border-radius: 22px;
+
             padding: 38px;
+
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.45);
         }
 
         .admin-icon {
             width: 75px;
             height: 75px;
+
             margin: 0 auto 20px;
+
             border-radius: 20px;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             background: linear-gradient(135deg, #7c3aed, #2563eb);
+
             font-size: 2rem;
+
             box-shadow: 0 10px 30px rgba(124, 58, 237, 0.35);
         }
 
@@ -66,57 +90,92 @@
             text-align: center;
             color: #9ca3af;
             margin-bottom: 30px;
+            line-height: 1.6;
         }
 
         .admin-form-label {
             color: #d1d5db;
             font-weight: 500;
             margin-bottom: 8px;
+            display: block;
         }
 
         .admin-input {
             width: 100%;
+
             background: #0b1020;
             color: #ffffff;
+
             border: 1px solid #263047;
             border-radius: 12px;
+
             padding: 13px 15px;
+
             outline: none;
+
             transition: 0.25s ease;
         }
 
+        .admin-input::placeholder {
+            color: #6b7280;
+        }
+
         .admin-input:focus {
+            background: #0b1020;
+            color: #ffffff;
+
             border-color: #8b5cf6;
+
             box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.12);
+        }
+
+        .admin-input:focus:invalid {
+            border-color: #f87171;
         }
 
         .admin-login-btn {
             width: 100%;
+
             border: none;
             border-radius: 12px;
+
             padding: 13px;
             margin-top: 8px;
+
             font-weight: 600;
             color: #ffffff;
+
             background: linear-gradient(135deg, #7c3aed, #2563eb);
+
             transition: 0.25s ease;
         }
 
         .admin-login-btn:hover {
             transform: translateY(-2px);
+
             box-shadow: 0 10px 25px rgba(124, 58, 237, 0.3);
+        }
+
+        .admin-login-btn:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+            transform: none;
         }
 
         .admin-message {
             margin-top: 15px;
             text-align: center;
-            min-height: 24px;
+        }
+
+        .admin-message.d-none {
+            display: none !important;
         }
 
         .admin-back-link {
             display: block;
             text-align: center;
             margin-top: 22px;
+
             color: #a78bfa;
             text-decoration: none;
         }
@@ -128,9 +187,12 @@
         .admin-note {
             margin-top: 22px;
             padding: 14px;
+
             border-radius: 12px;
+
             background: rgba(124, 58, 237, 0.08);
             border: 1px solid rgba(124, 58, 237, 0.18);
+
             color: #9ca3af;
             font-size: 0.9rem;
             text-align: center;
@@ -142,20 +204,32 @@
             padding: 20px;
             font-size: 0.9rem;
         }
+
+        @media (max-width: 576px) {
+            .admin-login-card {
+                padding: 28px 22px;
+            }
+
+            .admin-login-title {
+                font-size: 1.7rem;
+            }
+        }
     </style>
 </head>
 
 <body>
 
-    <div class="admin-login-wrapper">
+    <main class="admin-login-wrapper">
 
         <div class="admin-login-card">
 
             <div class="admin-icon">
-                🔑 
+                🔑
             </div>
 
-            <h1 class="admin-login-title">Admin Login</h1>
+            <h1 class="admin-login-title">
+                Admin Login
+            </h1>
 
             <p class="admin-login-subtitle">
                 Manage GameZone and monitor website activity.
@@ -164,6 +238,7 @@
             <form id="adminLoginForm">
 
                 <div class="mb-3">
+
                     <label for="adminEmail" class="admin-form-label">
                         Admin Email
                     </label>
@@ -173,11 +248,27 @@
                         id="adminEmail"
                         class="admin-input"
                         placeholder="Enter admin email"
+                        maxlength="254"
+                        autocomplete="username"
+                        spellcheck="false"
+                        autocapitalize="none"
+                        aria-describedby="adminEmailHelp"
                         required
                     >
+
+                    <small
+                        id="adminEmailHelp"
+                        class="d-block mt-2"
+                        style="color: #9ca3af;"
+                    >
+                        Enter the registered administrator email address.
+                    </small>
+
                 </div>
 
+
                 <div class="mb-3">
+
                     <label for="adminPassword" class="admin-form-label">
                         Password
                     </label>
@@ -187,17 +278,27 @@
                         id="adminPassword"
                         class="admin-input"
                         placeholder="Enter password"
+                        autocomplete="current-password"
                         required
                     >
+
                 </div>
 
+
                 <button type="submit" class="admin-login-btn">
-                     Login as Admin
+                    Login as Admin →
                 </button>
 
-                <div id="adminLoginMessage" class="admin-message"></div>
+
+                <div
+                    id="adminLoginMessage"
+                    class="admin-message d-none"
+                    role="alert"
+                    aria-live="polite"
+                ></div>
 
             </form>
+
 
             <a href="index.html" class="admin-back-link">
                 ← Back to GameZone
@@ -205,13 +306,71 @@
 
         </div>
 
-    </div>
+    </main>
+
 
     <footer class="admin-footer">
-        © 2026 GameZone. All rights reserved.
+        <div>© 2026 GameZone. All rights reserved.</div>
+        <p class="developer-credit"> Website Developed by Mariano Carpio</p>
     </footer>
 
+
     <script src="js/script.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const adminForm =
+                document.getElementById("adminLoginForm");
+
+            const adminEmail =
+                document.getElementById("adminEmail");
+
+            const adminPassword =
+                document.getElementById("adminPassword");
+
+            const adminMessage =
+                document.getElementById("adminLoginMessage");
+
+
+            function normalizeEmail() {
+                adminEmail.value =
+                    adminEmail.value.trim().toLowerCase();
+            }
+
+
+            adminEmail.addEventListener("change", normalizeEmail);
+
+            adminEmail.addEventListener("blur", normalizeEmail);
+
+
+            function clearLoginMessage() {
+                adminMessage.textContent = "";
+                adminMessage.className = "admin-message d-none";
+            }
+
+
+            adminEmail.addEventListener("input", clearLoginMessage);
+
+            adminPassword.addEventListener("input", clearLoginMessage);
+
+
+            adminForm.addEventListener("submit", function () {
+                normalizeEmail();
+            });
+
+
+            adminForm.addEventListener("invalid", function () {
+                adminMessage.textContent =
+                    "Please enter a valid admin email and password.";
+
+                adminMessage.className =
+                    "alert alert-danger admin-message";
+            }, true);
+
+        });
+    </script>
 
 </body>
 </html>

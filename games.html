@@ -1,52 +1,80 @@
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GameZone - Games</title>
-
-
-
-    <link
-        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-        rel="stylesheet"
-    >
-
-
-    <link
-        rel="stylesheet"
-        href="css/style.css"
-    >
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .game-visual.game-mlbb {
+            background: linear-gradient(135deg, #081c3b, #1466aa, #081329);
+        }
+        .game-visual.game-codm {
+            background: linear-gradient(135deg, #292b2e, #a54e18, #171717);
+        }
+        .game-visual.game-pubg {
+            background: linear-gradient(135deg, #2e2115, #d39134, #15120f);
+        }
+        .game-visual.game-hok {
+            background: linear-gradient(135deg, #102d3f, #167d87, #101727);
+        }
+        .game-visual.game-freefire {
+            background: linear-gradient(135deg, #44130e, #d64b1d, #191119);
+        }
+        .game-visual.game-dota {
+            background: linear-gradient(135deg, #160c0c, #922b24, #29100e);
+        }
+        .game-tag.moba,
+        .tournament-game.moba {
+            background: rgba(65, 217, 242, 0.13);
+            color: #41d9f2;
+            border: 1px solid rgba(65, 217, 242, 0.35);
+        }
+        .favorite-notification {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            z-index: 2000;
+            width: min(340px, calc(100% - 32px));
+            padding: 17px 20px;
+            color: #ffffff;
+            background: #211532;
+            border: 1px solid rgba(168, 85, 247, 0.65);
+            border-radius: 14px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.4);
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(12px);
+            transition: opacity 0.25s ease, transform 0.25s ease,
+                        visibility 0.25s ease;
+            pointer-events: none;
+        }
+        .favorite-notification.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+        .favorite-notification strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #d8b4fe;
+            font-size: 1rem;
+        }
+        .favorite-notification p {
+            margin: 0;
+            color: #e5e0ee;
+            font-size: 0.9rem;
+        }
+    </style>
 </head>
-
-
 <body>
-
-
-
     <nav class="navbar navbar-expand-lg navbar-dark game-navbar">
-
         <div class="container">
-
-
-
-            <a
-                class="navbar-brand game-logo"
-                href="index.html"
-            >
+            <a class="navbar-brand game-logo" href="index.html">
                 🎮 <span>Game</span>Zone
             </a>
-
-
-
             <button
                 class="navbar-toggler"
                 type="button"
@@ -54,692 +82,493 @@
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav"
                 aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
-
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-
             </button>
-
-
-
-            <div
-                class="collapse navbar-collapse"
-                id="navbarNav"
-            >
-
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link"
-                            href="index.html"
-                        >
-                            Home
-                        </a>
-
+                        <a class="nav-link" href="index.html">Home</a>
                     </li>
-
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link active"
-                            href="games.html"
-                        >
-                            Games
-                        </a>
-
+                        <a class="nav-link active" href="games.html">Games</a>
                     </li>
-
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link"
-                            href="news.html"
-                        >
-                            News
-                        </a>
-
+                        <a class="nav-link" href="favorites.html">♡ Favorites</a>
                     </li>
-
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link"
-                            href="tournaments.html"
-                        >
-                            Tournaments
-                        </a>
-
+                        <a class="nav-link" href="news.html">News</a>
                     </li>
-
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link"
-                            href="community.html"
-                        >
-                            Community
-                        </a>
-
+                        <a class="nav-link" href="tournaments.html">Tournaments</a>
                     </li>
-
-
-
                     <li class="nav-item">
-
-                        <a
-                            class="nav-link"
-                            href="contact.html"
-                        >
-                            Contact
-                        </a>
-
+                        <a class="nav-link" href="community.html">Community</a>
                     </li>
-
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
                 </ul>
-
             </div>
-
         </div>
-
     </nav>
 
-
-
     <section class="games-header">
-
         <div class="container text-center">
-
-            <h1>
-                Explore Games
-            </h1>
-
-
+            <h1>Explore Games</h1>
             <p>
-                Browse the games featured on GameZone
-                and find your next favorite.
+                Browse the games featured on GameZone and find your next favorite.
             </p>
-
-
         </div>
-
     </section>
 
-
-
     <section class="games-section">
-
         <div class="container">
-
-
-
             <div class="games-controls">
-
-
-
                 <div class="search-box">
-
-                    <label for="searchInput">
-                        Search Games
-                    </label>
-
-
+                    <label for="searchInput">Search Games</label>
                     <input
                         type="text"
                         id="searchInput"
                         class="form-control"
-                        placeholder="Search for a game..."
-                    >
-
+                        placeholder="🔎 Search for a game...">
                 </div>
-
-
-
                 <div class="filter-box">
-
-                    <label for="genreFilter">
-                        Filter by Genre
-                    </label>
-
-
-                    <select
-                        id="genreFilter"
-                        class="form-select"
-                    >
-
-                        <option value="all">
-                            All Genres
-                        </option>
-
-                        <option value="Fighting">
-                            Fighting
-                        </option>
-
-                        <option value="Shooter">
-                            Shooter
-                        </option>
-
-                        <option value="Action">
-                            Action
-                        </option>
-
-                        <option value="Sports">
-                            Sports
-                        </option>
-
+                    <label for="genreFilter">Filter by Genre</label>
+                    <select id="genreFilter" class="form-select">
+                        <option value="all">All Genres</option>
+                        <option value="Fighting">Fighting</option>
+                        <option value="Shooter">Shooter</option>
+                        <option value="Action">Action</option>
+                        <option value="Sports">Sports</option>
+                        <option value="MOBA">MOBA</option>
                     </select>
-
                 </div>
-
             </div>
 
-
-
-            <div
-                class="row g-4"
-                id="gamesContainer"
-            >
-
-
-
-                <div
-                    class="col-md-6 col-lg-4 game-card"
-                    data-name="Tekken 8"
-                    data-genre="Fighting"
-                >
-
+            <div class="row g-4" id="gamesContainer">
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Tekken 8"
+                     data-genre="Fighting">
                     <div class="modern-game-card">
-
-
-
                         <div class="game-visual game-tekken">
-
-                            <img
-                                src="images/tekken8.jpg"
-                                alt="Tekken 8"
-                                class="game-cover"
-                            >
-
-
+                            <img src="images/tekken8.jpg"
+                                 alt="Tekken 8"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
                             <div class="visual-overlay"></div>
-
-
-                            <div class="visual-title">
-                                TEKKEN 8
-                            </div>
-
+                            <div class="visual-title">TEKKEN 8</div>
                         </div>
-
-
-
                         <div class="game-card-content">
-
-
                             <div class="game-card-top">
-
-                                <h3>
-                                    Tekken 8
-                                </h3>
-
-
-                                <span class="game-tag fighting">
-                                    Fighting
-                                </span>
-
+                                <h3>Tekken 8</h3>
+                                <span class="game-tag fighting">Fighting</span>
                             </div>
-
-
                             <p>
-                                A competitive fighting game
-                                featuring intense battles and
-                                a variety of fighters.
+                                Compete in intense fighting matches using
+                                different fighters, combos, and strategies.
                             </p>
-
-
-                            <button
-                                type="button"
-                                class="favorite-btn game-button"
-                            >
+                            <button type="button" class="favorite-btn game-button">
                                 ♡ Favorite
                             </button>
-
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="col-md-6 col-lg-4 game-card"
-                    data-name="Valorant"
-                    data-genre="Shooter"
-                >
-
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Valorant"
+                     data-genre="Shooter">
                     <div class="modern-game-card">
-
-
-
                         <div class="game-visual game-valorant">
-
-                            <img
-                                src="images/valorant.jpg"
-                                alt="Valorant"
-                                class="game-cover"
-                            >
-
-
+                            <img src="images/valorant.jpg"
+                                 alt="Valorant"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
                             <div class="visual-overlay"></div>
-
-
-                            <div class="visual-title">
-                                VALORANT
-                            </div>
-
+                            <div class="visual-title">VALORANT</div>
                         </div>
-
-
-
                         <div class="game-card-content">
-
-
                             <div class="game-card-top">
-
-                                <h3>
-                                    Valorant
-                                </h3>
-
-
-                                <span class="game-tag shooter">
-                                    Shooter
-                                </span>
-
+                                <h3>Valorant</h3>
+                                <span class="game-tag shooter">Shooter</span>
                             </div>
-
-
                             <p>
-                                A tactical competitive shooter
-                                focused on teamwork, strategy,
-                                and precision.
+                                A tactical shooter where teamwork, aim,
+                                strategy, and agent abilities matter.
                             </p>
-
-
-                            <button
-                                type="button"
-                                class="favorite-btn game-button"
-                            >
+                            <button type="button" class="favorite-btn game-button">
                                 ♡ Favorite
                             </button>
-
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="col-md-6 col-lg-4 game-card"
-                    data-name="Marvel Rivals"
-                    data-genre="Action"
-                >
-
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Marvel Rivals"
+                     data-genre="Action">
                     <div class="modern-game-card">
-
-
-
                         <div class="game-visual game-marvel">
-
-                            <img
-                                src="images/marvel-rivals.jpg"
-                                alt="Marvel Rivals"
-                                class="game-cover"
-                            >
-
-
+                            <img src="images/marvel-rivals.jpg"
+                                 alt="Marvel Rivals"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
                             <div class="visual-overlay"></div>
-
-
-                            <div class="visual-title">
-                                MARVEL RIVALS
-                            </div>
-
+                            <div class="visual-title">MARVEL RIVALS</div>
                         </div>
-
-
-
                         <div class="game-card-content">
-
-
                             <div class="game-card-top">
-
-                                <h3>
-                                    Marvel Rivals
-                                </h3>
-
-
-                                <span class="game-tag action">
-                                    Action
-                                </span>
-
+                                <h3>Marvel Rivals</h3>
+                                <span class="game-tag action">Action</span>
                             </div>
-
-
                             <p>
-                                Team-based action featuring
-                                popular Marvel heroes
-                                and villains.
+                                Team up with Marvel heroes and villains
+                                in fast-paced, objective-based battles.
                             </p>
-
-
-                            <button
-                                type="button"
-                                class="favorite-btn game-button"
-                            >
+                            <button type="button" class="favorite-btn game-button">
                                 ♡ Favorite
                             </button>
-
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="col-md-6 col-lg-4 game-card"
-                    data-name="NBA 2K"
-                    data-genre="Sports"
-                >
-
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="NBA 2K"
+                     data-genre="Sports">
                     <div class="modern-game-card">
-
-
-
                         <div class="game-visual game-nba">
-
-                            <img
-                                src="images/nba2k.jpg"
-                                alt="NBA 2K"
-                                class="game-cover"
-                            >
-
-
+                            <img src="images/nba2k.jpg"
+                                 alt="NBA 2K"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
                             <div class="visual-overlay"></div>
-
-
-                            <div class="visual-title">
-                                NBA 2K
-                            </div>
-
+                            <div class="visual-title">NBA 2K</div>
                         </div>
-
-
-
                         <div class="game-card-content">
-
-
                             <div class="game-card-top">
-
-                                <h3>
-                                    NBA 2K
-                                </h3>
-
-
-                                <span class="game-tag sports">
-                                    Sports
-                                </span>
-
+                                <h3>NBA 2K</h3>
+                                <span class="game-tag sports">Sports</span>
                             </div>
-
-
                             <p>
-                                A basketball game featuring
-                                competitive matches, teams,
-                                players, and game modes.
+                                Play basketball matches, build your team,
+                                and compete on the virtual court.
                             </p>
-
-
-                            <button
-                                type="button"
-                                class="favorite-btn game-button"
-                            >
+                            <button type="button" class="favorite-btn game-button">
                                 ♡ Favorite
                             </button>
-
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="col-md-6 col-lg-4 game-card"
-                    data-name="Street Fighter 6"
-                    data-genre="Fighting"
-                >
-
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Street Fighter 6"
+                     data-genre="Fighting">
                     <div class="modern-game-card">
-
-
-
                         <div class="game-visual game-streetfighter">
-
-                            <img
-                                src="images/street-fighter-6.jpg"
-                                alt="Street Fighter 6"
-                                class="game-cover"
-                            >
-
-
+                            <img src="images/street-fighter-6.jpg"
+                                 alt="Street Fighter 6"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
                             <div class="visual-overlay"></div>
-
-
-                            <div class="visual-title">
-                                STREET FIGHTER 6
-                            </div>
-
+                            <div class="visual-title">STREET FIGHTER 6</div>
                         </div>
-
-
-
                         <div class="game-card-content">
-
-
                             <div class="game-card-top">
-
-                                <h3>
-                                    Street Fighter 6
-                                </h3>
-
-
-                                <span class="game-tag fighting">
-                                    Fighting
-                                </span>
-
+                                <h3>Street Fighter 6</h3>
+                                <span class="game-tag fighting">Fighting</span>
                             </div>
-
-
                             <p>
-                                A fighting game where players
-                                compete using unique characters
-                                and abilities.
+                                Master unique fighters, learn combos,
+                                and challenge other players.
                             </p>
-
-
-                            <button
-                                type="button"
-                                class="favorite-btn game-button"
-                            >
+                            <button type="button" class="favorite-btn game-button">
                                 ♡ Favorite
                             </button>
-
-
                         </div>
-
                     </div>
-
                 </div>
 
-
-
-                <div
-                    class="col-md-6 col-lg-4 game-card"
-                    data-name="Call of Duty"
-                    data-genre="Shooter"
-                >
-
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Call of Duty"
+                     data-genre="Shooter">
                     <div class="modern-game-card">
-
-
-
                         <div class="game-visual game-cod">
-
-                            <img
-                                src="images/call-of-duty.jpg"
-                                alt="Call of Duty"
-                                class="game-cover"
-                            >
-
-
+                            <img src="images/call-of-duty.jpg"
+                                 alt="Call of Duty"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
                             <div class="visual-overlay"></div>
-
-
-                            <div class="visual-title">
-                                CALL OF DUTY
-                            </div>
-
+                            <div class="visual-title">CALL OF DUTY</div>
                         </div>
-
-
-
                         <div class="game-card-content">
-
-
                             <div class="game-card-top">
-
-                                <h3>
-                                    Call of Duty
-                                </h3>
-
-
-                                <span class="game-tag shooter">
-                                    Shooter
-                                </span>
-
+                                <h3>Call of Duty</h3>
+                                <span class="game-tag shooter">Shooter</span>
                             </div>
-
-
                             <p>
-                                An action-packed shooter
-                                featuring competitive
-                                multiplayer gameplay.
+                                An action-packed shooter with competitive
+                                multiplayer modes and team battles.
                             </p>
-
-
-                            <button
-                                type="button"
-                                class="favorite-btn game-button"
-                            >
+                            <button type="button" class="favorite-btn game-button">
                                 ♡ Favorite
                             </button>
-
-
                         </div>
-
                     </div>
-
                 </div>
 
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Mobile Legends Bang Bang"
+                     data-genre="MOBA">
+                    <div class="modern-game-card">
+                        <div class="game-visual game-mlbb">
+                            <img src="images/mobile-legends.jpg"
+                                 alt="Mobile Legends Bang Bang"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
+                            <div class="visual-overlay"></div>
+                            <div class="visual-title">MOBILE LEGENDS</div>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="game-card-top">
+                                <h3>Mobile Legends: Bang Bang</h3>
+                                <span class="game-tag moba">MOBA</span>
+                            </div>
+                            <p>
+                                Join five-player teams, choose your hero,
+                                and compete to destroy the enemy base.
+                            </p>
+                            <button type="button" class="favorite-btn game-button">
+                                ♡ Favorite
+                            </button>
+                        </div>
+                    </div>
+                </div>
 
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Call of Duty Mobile"
+                     data-genre="Shooter">
+                    <div class="modern-game-card">
+                        <div class="game-visual game-codm">
+                            <img src="images/call-of-duty-mobile.jpg"
+                                 alt="Call of Duty Mobile"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
+                            <div class="visual-overlay"></div>
+                            <div class="visual-title">COD MOBILE</div>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="game-card-top">
+                                <h3>Call of Duty: Mobile</h3>
+                                <span class="game-tag shooter">Shooter</span>
+                            </div>
+                            <p>
+                                Take part in mobile FPS matches featuring
+                                multiplayer combat and battle royale modes.
+                            </p>
+                            <button type="button" class="favorite-btn game-button">
+                                ♡ Favorite
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="PUBG Mobile"
+                     data-genre="Shooter">
+                    <div class="modern-game-card">
+                        <div class="game-visual game-pubg">
+                            <img src="images/pubg-mobile.jpg"
+                                 alt="PUBG Mobile"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
+                            <div class="visual-overlay"></div>
+                            <div class="visual-title">PUBG MOBILE</div>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="game-card-top">
+                                <h3>PUBG Mobile</h3>
+                                <span class="game-tag shooter">Shooter</span>
+                            </div>
+                            <p>
+                                Survive on the battlefield, collect equipment,
+                                and work with your squad to win.
+                            </p>
+                            <button type="button" class="favorite-btn game-button">
+                                ♡ Favorite
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Honor of Kings"
+                     data-genre="MOBA">
+                    <div class="modern-game-card">
+                        <div class="game-visual game-hok">
+                            <img src="images/honor-of-kings.jpg"
+                                 alt="Honor of Kings"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
+                            <div class="visual-overlay"></div>
+                            <div class="visual-title">HONOR OF KINGS</div>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="game-card-top">
+                                <h3>Honor of Kings</h3>
+                                <span class="game-tag moba">MOBA</span>
+                            </div>
+                            <p>
+                                Team up with other players, select heroes,
+                                and compete in strategic arena battles.
+                            </p>
+                            <button type="button" class="favorite-btn game-button">
+                                ♡ Favorite
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Garena Free Fire"
+                     data-genre="Shooter">
+                    <div class="modern-game-card">
+                        <div class="game-visual game-freefire">
+                            <img src="images/free-fire.jpg"
+                                 alt="Garena Free Fire"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
+                            <div class="visual-overlay"></div>
+                            <div class="visual-title">FREE FIRE</div>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="game-card-top">
+                                <h3>Garena Free Fire</h3>
+                                <span class="game-tag shooter">Shooter</span>
+                            </div>
+                            <p>
+                                Compete in fast-paced battle royale matches
+                                and try to be the last player or squad standing.
+                            </p>
+                            <button type="button" class="favorite-btn game-button">
+                                ♡ Favorite
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-lg-4 game-card"
+                     data-name="Dota 2"
+                     data-genre="MOBA">
+                    <div class="modern-game-card">
+                        <div class="game-visual game-dota">
+                            <img src="images/dota-2.jpg"
+                                 alt="Dota 2"
+                                 class="game-cover"
+                                 onerror="this.style.display='none'">
+                            <div class="visual-overlay"></div>
+                            <div class="visual-title">DOTA 2</div>
+                        </div>
+                        <div class="game-card-content">
+                            <div class="game-card-top">
+                                <h3>Dota 2</h3>
+                                <span class="game-tag moba">MOBA</span>
+                            </div>
+                            <p>
+                                Choose a hero, work with your team,
+                                and compete in strategic five-versus-five matches.
+                            </p>
+                            <button type="button" class="favorite-btn game-button">
+                                ♡ Favorite
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-
-
-            <div
-                id="noResults"
-                class="no-results"
-                style="display: none;"
-            >
-
-                <h4>
-                    No games found
-                </h4>
-
-
-                <p>
-                    Try another game name or genre.
-                </p>
-
+            <!-- NO RESULTS -->
+            <div id="noResults" class="no-results" style="display: none;">
+                <h4>No games found</h4>
+                <p>Try another game name or genre.</p>
             </div>
-
-
         </div>
-
     </section>
 
-
+    <div
+        id="favoriteNotification"
+        class="favorite-notification"
+        role="status"
+        aria-live="polite">
+        <strong id="favoriteNotificationTitle">Added to Favorites</strong>
+        <p id="favoriteNotificationMessage">
+            Your favorite game has been saved.
+        </p>
+    </div>
 
     <footer class="game-footer">
-
         <div class="container">
-
-
-            <div class="footer-logo">
-                🎮 GameZone
-            </div>
-
-
-            <p>
-                Your ultimate hub for games,
-                gaming news, tournaments,
-                and community.
-            </p>
-
-
-            <div class="footer-line"></div>
-
-
-            <p class="copyright">
-                © 2026 GameZone. All rights reserved.
-            </p>
-
-
+        <div class="footer-logo">
+            🎮 <span>Game</span>Zone
+        
         </div>
+            <p>
+                Your ultimate hub for games, gaming news,
+                tournaments, and community.
+            </p>
+            <div class="footer-line"></div>
+            <p class="developer-credit"> Website Developed by Mariano Carpio</p>
 
+            <p class="copyright">© 2026 GameZone. All rights reserved.</p>
+        </div>
     </footer>
 
-
-
-    <script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-    ></script>
-
-
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="js/script.js"></script>
 
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const notification =
+                document.getElementById("favoriteNotification");
 
+            const notificationTitle =
+                document.getElementById("favoriteNotificationTitle");
+
+            const notificationMessage =
+                document.getElementById("favoriteNotificationMessage");
+
+            let notificationTimer;
+
+            document.querySelectorAll(".favorite-btn").forEach(function (button) {
+                button.addEventListener("click", function () {
+                    const card = button.closest(".game-card");
+
+                    const gameName = card
+                        ? card.dataset.name
+                        : "This game";
+
+                    const isFavorited =
+                        button.classList.contains("favorited");
+
+                    if (isFavorited) {
+                        notificationTitle.textContent = "Added to Favorites!";
+
+                        notificationMessage.textContent =
+                            gameName + " is now one of your favorite games!";
+                    } else {
+                        notificationTitle.textContent = "Removed from Favorites";
+
+                        notificationMessage.textContent =
+                            gameName + " was removed from your favorites.";
+                    }
+
+                    notification.classList.add("show");
+
+                    clearTimeout(notificationTimer);
+
+                    notificationTimer = setTimeout(function () {
+                        notification.classList.remove("show");
+                    }, 2800);
+                });
+            });
+        });
+    </script>
 </body>
-
 </html>

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +34,7 @@
         .game-detail-hero {
             position: relative;
             isolation: isolate;
-            min-height: 365px;
+            min-height: 440px;
             overflow: hidden;
             border: 1px solid rgba(139, 92, 246, .24);
             border-radius: 20px;
@@ -52,6 +53,11 @@
             object-fit: cover;
             object-position: center;
             z-index: -2;
+            transition: transform .4s ease;
+        }
+
+        .game-detail-hero:hover .game-detail-banner {
+            transform: scale(1.02);
         }
 
         .game-detail-hero::after {
@@ -60,18 +66,24 @@
             inset: 0;
             z-index: -1;
             background:
-                linear-gradient(90deg,
-                    rgba(8,11,22,.96) 0%,
-                    rgba(8,11,22,.79) 43%,
-                    rgba(8,11,22,.25) 100%),
-                linear-gradient(0deg,
-                    rgba(8,11,22,.38),
-                    transparent 65%);
+                linear-gradient(
+                    90deg,
+                    rgba(8,11,22,.94) 0%,
+                    rgba(8,11,22,.72) 42%,
+                    rgba(8,11,22,.20) 100%
+                ),
+                linear-gradient(
+                    0deg,
+                    rgba(8,11,22,.30),
+                    transparent 65%
+                );
         }
 
         .game-detail-hero-content {
-            min-height: 365px;
-            max-width: 760px;
+            position: relative;
+            z-index: 1;
+            min-height: 440px;
+            max-width: 780px;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -101,7 +113,7 @@
         }
 
         .game-detail-tagline {
-            color: #d1d5db;
+            color: #e2e8f0;
             font-size: 1.06rem;
             line-height: 1.75;
             max-width: 620px;
@@ -139,7 +151,7 @@
         .detail-secondary-btn {
             color: #e5e7eb;
             border: 1px solid #475569;
-            background: rgba(8,11,22,.45);
+            background: rgba(8,11,22,.65);
         }
 
         .detail-secondary-btn:hover {
@@ -207,6 +219,12 @@
             background: #111827;
             border: 1px solid rgba(139,92,246,.16);
             border-radius: 15px;
+            transition: .25s ease;
+        }
+
+        .detail-feature-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(139,92,246,.5);
         }
 
         .detail-feature-number {
@@ -239,9 +257,17 @@
 
         .detail-note {
             color: #94a3b8;
-            font-size: .88rem;
+            font-size: .92rem;
             margin-top: 24px;
-            line-height: 1.65;
+            padding: 18px 20px;
+            line-height: 1.75;
+            background: #111827;
+            border: 1px solid rgba(148,163,184,.12);
+            border-radius: 12px;
+        }
+
+        .detail-note strong {
+            color: #c4b5fd;
         }
 
         .game-detail-not-found {
@@ -267,17 +293,32 @@
 
             .game-detail-hero,
             .game-detail-hero-content {
-                min-height: 385px;
+                min-height: 390px;
             }
 
             .game-detail-hero::after {
                 background:
-                    linear-gradient(90deg, rgba(8,11,22,.9), rgba(8,11,22,.52)),
-                    linear-gradient(0deg, rgba(8,11,22,.48), transparent);
+                    linear-gradient(90deg, rgba(8,11,22,.91), rgba(8,11,22,.48)),
+                    linear-gradient(0deg, rgba(8,11,22,.5), transparent);
             }
 
             .detail-panel {
                 padding: 22px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .game-detail-hero,
+            .game-detail-hero-content {
+                min-height: 420px;
+            }
+
+            .game-detail-hero-content {
+                padding: 28px 22px;
+            }
+
+            .game-detail-hero h1 {
+                font-size: 2.2rem;
             }
         }
     </style>
@@ -299,38 +340,18 @@
                 data-bs-target="#navbarNav"
                 aria-controls="navbarNav"
                 aria-expanded="false"
-                aria-label="Toggle navigation"
-            >
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="games.html">Games</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="news.html">News</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="tournaments.html">Tournaments</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="community.html">Community</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="games.html">Games</a></li>
+                    <li class="nav-item"><a class="nav-link" href="news.html">News</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tournaments.html">Tournaments</a></li>
+                    <li class="nav-item"><a class="nav-link" href="community.html">Community</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
             </div>
         </div>
@@ -349,115 +370,77 @@
             <section id="gameDetailsContent">
 
                 <div class="game-detail-hero">
-
-                    <img
-                        id="gameBanner"
-                        class="game-detail-banner"
-                        src=""
-                        alt=""
-                    >
+                    <img id="gameBanner" class="game-detail-banner" src="" alt="">
 
                     <div class="game-detail-hero-content">
-
-                        <span class="game-detail-label" id="gameGenreLabel">
-                            GAME DETAILS
-                        </span>
-
+                        <span class="game-detail-label" id="gameGenreLabel">GAME DETAILS</span>
                         <h1 id="gameTitle">Game Details</h1>
-
                         <p class="game-detail-tagline" id="gameTagline"></p>
 
                         <div class="detail-actions">
                             <a href="tournaments.html" class="detail-primary-btn">
                                 Explore Tournaments →
                             </a>
-
                             <a href="games.html" class="detail-secondary-btn">
                                 Back to Games
                             </a>
                         </div>
-
                     </div>
                 </div>
 
-
                 <div class="row g-4">
-
                     <div class="col-lg-8">
                         <section class="detail-panel">
-
                             <h2>About This Game</h2>
-
                             <p id="gameOverview"></p>
-
                             <p id="gameGameplay"></p>
-
                         </section>
                     </div>
 
                     <div class="col-lg-4">
                         <aside class="detail-panel">
-
                             <h2>Game Information</h2>
 
                             <dl class="detail-info-list">
-
                                 <div class="detail-info-row">
                                     <dt>Genre</dt>
                                     <dd id="gameGenre"></dd>
                                 </div>
-
                                 <div class="detail-info-row">
                                     <dt>Developer</dt>
                                     <dd id="gameDeveloper"></dd>
                                 </div>
-
                                 <div class="detail-info-row">
                                     <dt>Publisher</dt>
                                     <dd id="gamePublisher"></dd>
                                 </div>
-
                                 <div class="detail-info-row">
                                     <dt>Release</dt>
                                     <dd id="gameRelease"></dd>
                                 </div>
-
                                 <div class="detail-info-row">
                                     <dt>Platforms</dt>
                                     <dd id="gamePlatforms"></dd>
                                 </div>
-
                             </dl>
                         </aside>
                     </div>
-
                 </div>
 
-
-                <h2 class="detail-section-title">
-                    What Makes It Stand Out?
-                </h2>
-
+                <h2 class="detail-section-title">What Makes It Stand Out?</h2>
                 <div class="row g-4" id="gameFeatureList"></div>
 
-                <p class="detail-note" id="gameNote"></p>
+                <div class="detail-note" id="gameNote"></div>
 
             </section>
 
-
             <section id="gameNotFound" class="game-detail-not-found" hidden>
-
                 <h1>Game Not Found</h1>
-
                 <p>
                     We couldn't find that game. Return to the Games page
                     and choose a title to learn more.
                 </p>
-
-                <a href="games.html" class="detail-primary-btn">
-                    Browse Games →
-                </a>
-
+                <a href="games.html" class="detail-primary-btn">Browse Games →</a>
             </section>
 
         </div>
@@ -466,20 +449,13 @@
 
     <footer class="game-footer">
         <div class="container">
-
-            <div class="footer-logo">🎮 GameZone</div>
-
-            <p>
-                Your ultimate hub for games, gaming news,
-                tournaments, and community.
-            </p>
-
+        <div class="footer-logo">
+        🎮 <span>Game</span>Zone</div>
+            <p>Your ultimate hub for games, gaming news, tournaments, and community.</p>
             <div class="footer-line"></div>
+            <p class="developer-credit"> Website Developed by Mariano Carpio</p>
 
-            <p class="copyright">
-                © 2026 GameZone. All rights reserved.
-            </p>
-
+            <p class="copyright">© 2026 GameZone. All rights reserved.</p>
         </div>
     </footer>
 
@@ -488,217 +464,494 @@
     <script src="js/script.js"></script>
 
     <script>
+
         const gameLibrary = {
 
+            /* 1. TEKKEN 8 */
             "tekken8": {
                 title: "Tekken 8",
                 genre: "3D Fighting",
                 image: "images/tekken-8-tourna.jpg",
-                tagline: "Step into intense one-on-one battles where timing, movement, and smart decisions matter.",
+                tagline: "Step into intense one-on-one battles where timing, movement, character knowledge, and smart decisions matter.",
+
                 developer: "Bandai Namco Studios",
                 publisher: "Bandai Namco Entertainment",
                 release: "January 26, 2024",
                 platforms: "PlayStation 5, Xbox Series X|S, Windows PC",
 
-                overview: "Tekken 8 is a 3D fighting game built around one-on-one matches. Players choose from a roster of fighters, each with their own move sets, combos, throws, and fighting style. The game continues the long-running Tekken series and places a strong emphasis on aggressive play and close-range combat.",
+                overview: "Tekken 8 is a 3D fighting game in Bandai Namco's long-running Tekken series. Players choose a fighter and face an opponent in one-on-one combat. Each character has a different move list, fighting style, combo potential, and set of strengths. The game continues the story of the Mishima and Kazama families, while also offering competitive modes for players who want to focus on improving their fighting skills.",
 
-                gameplay: "Its Heat System gives players additional ways to apply pressure and create offensive opportunities. Players can learn a character's moves, practice combos, and improve their reactions before taking their skills into different offline and online modes.",
+                gameplay: "Matches involve movement, spacing, blocking, punishment, throws, combos, and recognizing the opponent's habits. Players must learn when to attack, when to defend, and how to respond to different moves. Tekken 8's Heat System provides additional offensive options, so managing that resource and understanding each character's tools can make a difference in close matches.",
 
                 features: [
                     {
-                        title: "Distinct Fighters",
-                        text: "Choose characters with unique move lists, strengths, and ways to approach a match."
+                        title: "Unique Character Styles",
+                        text: "Every fighter has a distinct move list, combo routes, strengths, and weaknesses. Learning a character's key moves and matchups helps players develop a more consistent game plan."
                     },
                     {
-                        title: "Aggressive Combat",
-                        text: "The Heat System creates opportunities to keep pressure on an opponent and make bold offensive decisions."
+                        title: "Heat System",
+                        text: "The Heat mechanic provides a limited period of additional offensive options. Players must decide when to activate it and how to use the opportunity without neglecting defense."
                     },
                     {
-                        title: "Practice and Compete",
-                        text: "Learn combos, improve movement and defense, and explore the available story, offline, and online modes."
+                        title: "Movement and Defense",
+                        text: "Blocking, sidestepping, spacing, and punishing unsafe attacks are important skills. Strong defense helps players recognize mistakes and create opportunities to counterattack."
                     }
                 ],
 
-                note: "Platform availability and online features may depend on the edition, service status, and platform."
+                note: "Things to know: Tekken 8 rewards practice and matchup knowledge. Training mode is useful for learning combos and testing defensive responses. Platform features and online availability may vary."
             },
 
 
+            /* 2. VALORANT */
             "valorant": {
                 title: "VALORANT",
                 genre: "Tactical First-Person Shooter",
                 image: "images/valorant-tourna.jpg",
                 tagline: "Coordinate with your team, use agent abilities carefully, and win round-based tactical battles.",
+
                 developer: "Riot Games",
                 publisher: "Riot Games",
                 release: "June 2, 2020 (PC launch)",
                 platforms: "Windows PC, PlayStation 5, Xbox Series X|S",
 
-                overview: "VALORANT is a competitive tactical shooter featuring teams of attackers and defenders. Players select agents with different abilities, but accurate shooting, map knowledge, communication, and teamwork remain important parts of each match.",
+                overview: "VALORANT is a team-based tactical shooter where players select agents with different abilities. In its standard competitive format, one side attempts to plant and protect the Spike while the other side tries to stop the plant or defuse it. Accurate aim matters, but map knowledge, communication, utility usage, and teamwork are also important parts of the game.",
 
-                gameplay: "Rounds often require teams to coordinate their utility, manage the in-game economy, and decide when to push, hold a position, or rotate to another area of the map. Each agent adds a different set of tactical options, so team composition and communication can influence how a round is played.",
+                gameplay: "Players earn credits through match performance and round results, then use those credits to buy weapons, shields, and abilities. Teams must make decisions about when to buy, save resources, push a site, hold an angle, or rotate. Agent abilities can reveal enemies, block vision, control an area, or support teammates, making coordination important before and during engagements.",
 
                 features: [
                     {
-                        title: "Agent Abilities",
-                        text: "Each agent brings abilities that can help gather information, control space, or support teammates."
+                        title: "Agents and Abilities",
+                        text: "Agents have different abilities and roles. Choosing a balanced team and combining utility can help gather information, control space, create openings, and defend important areas."
                     },
                     {
-                        title: "Round-Based Strategy",
-                        text: "Teams need to manage resources, plan attacks, defend sites, and adapt to opponents."
+                        title: "Economy and Round Planning",
+                        text: "Credits affect which weapons and abilities a team can afford. Teams need to balance spending with future rounds and decide when to invest or save."
                     },
                     {
-                        title: "Team Communication",
-                        text: "Sharing information and coordinating actions can make a major difference during a close match."
+                        title: "Aim, Maps, and Communication",
+                        text: "Crosshair placement, recoil control, positioning, callouts, and learning common angles help players contribute. Sharing useful information can give the team a better chance to coordinate."
                     }
                 ],
 
-                note: "Console availability and features can vary by region and platform."
+                note: "Things to know: VALORANT is designed around team play. Learning a few agents, understanding the maps, and communicating clearly are good starting points. Available platforms and features may vary by region."
             },
 
 
+            /* 3. MARVEL RIVALS */
             "marvel-rivals": {
                 title: "Marvel Rivals",
                 genre: "Team-Based Hero Shooter",
                 image: "images/marvel-rivals-tournament.jpg",
-                tagline: "Build a team of heroes and villains and combine their abilities in fast-paced battles.",
+                tagline: "Build a team of heroes and villains and combine their abilities in fast-paced objective battles.",
+
                 developer: "NetEase Games",
                 publisher: "NetEase Games",
                 release: "December 6, 2024",
                 platforms: "Windows PC, PlayStation 5, Xbox Series X|S",
 
-                overview: "Marvel Rivals is a team-based player-versus-player shooter featuring characters from the Marvel universe. Each character has a role and set of abilities, encouraging players to work together rather than rely only on individual performance.",
+                overview: "Marvel Rivals is a team-based hero shooter featuring characters from the Marvel universe. Players pick heroes and villains with different abilities and work together to complete objectives. Rather than relying only on individual eliminations, teams need to coordinate their roles, control important areas, and support each other during fights.",
 
-                gameplay: "Matches revolve around team coordination, positioning, and using character abilities at the right time. Certain character combinations can create team-up effects, while destructible environments can change how players move through and fight over the map.",
+                gameplay: "Each character has a different set of attacks, movement options, and abilities. Team compositions commonly include characters who absorb pressure, deal damage, or provide support. Players can use abilities together to create openings, contest objectives, and respond to threats. The destructible environments can also change available cover and sightlines during a match.",
 
                 features: [
                     {
-                        title: "Marvel Characters",
-                        text: "Play as a range of familiar heroes and villains, each with their own combat style and abilities."
+                        title: "Marvel Character Roster",
+                        text: "Choose from a range of heroes and villains with different combat styles. Understanding a character's strengths and limitations helps you decide when to engage or support your team."
                     },
                     {
-                        title: "Team-Up Abilities",
-                        text: "Some character combinations provide special interactions that reward coordinated team choices."
+                        title: "Team-Up Mechanics",
+                        text: "Certain character combinations offer special interactions. Building a team around useful combinations can create additional tactical options during a match."
                     },
                     {
-                        title: "Changing Battlefields",
-                        text: "Destructible environments can alter sightlines and create new opportunities during a match."
+                        title: "Objective-Based Teamwork",
+                        text: "Players need to coordinate attacks, protect teammates, and contest the objective. Positioning and timing can be as important as dealing damage."
                     }
                 ],
 
-                note: "Character rosters, seasons, and online features may change as the game receives updates."
+                note: "Things to know: Try different characters to find a play style that suits you, but pay attention to your team's needs. Characters, seasons, and game systems may change through updates."
             },
 
 
+            /* 4. NBA 2K */
             "nba2k": {
                 title: "NBA 2K",
                 genre: "Basketball Simulation / Sports",
                 image: "images/nba2k-tournament.jpg",
                 tagline: "Take the court, build your basketball lineup, and compete through virtual basketball gameplay.",
-                developer: "Visual Concepts (varies by edition credits)",
+
+                developer: "Visual Concepts (varies by edition)",
                 publisher: "2K",
                 release: "Annual game series",
                 platforms: "Varies by edition",
 
-                overview: "NBA 2K is a basketball video game series that recreates professional basketball through teams, player likenesses, on-court controls, and different ways to play. Depending on the edition, players can take control of a full team, focus on a created player, or compete in online and offline modes.",
+                overview: "NBA 2K is a basketball video game series that recreates professional basketball with teams, player likenesses, basketball controls, and different game modes. Depending on the edition, players may control a full team, create and develop a player, manage a franchise, build a lineup, or compete in online matches. The specific features and available modes depend on the release.",
 
-                gameplay: "Success involves more than shooting. Players make decisions about passing, spacing, defensive positioning, timing, substitutions, and team strategy. Different editions can include different career, franchise, online, and progression modes, so the exact features depend on which version is being played.",
+                gameplay: "Basketball gameplay involves more than shooting. Players make decisions about passing, dribbling, spacing, shot timing, defensive positioning, rebounds, substitutions, and reading the opposing team's strategy. Online modes may have different lineup or progression systems, while offline modes let players explore basketball in their own way.",
 
                 features: [
                     {
-                        title: "Basketball Gameplay",
-                        text: "Use passing, shooting, dribbling, defense, and positioning to create scoring opportunities."
+                        title: "On-Court Basketball",
+                        text: "Pass, shoot, dribble, defend, and move without the ball to create scoring opportunities. Reading defenders and choosing the right type of shot are important parts of successful play."
                     },
                     {
-                        title: "Teams and Lineups",
-                        text: "Play with basketball teams and rosters included in the specific edition."
+                        title: "Teams and Player Builds",
+                        text: "Different editions offer different ways to manage lineups or develop a created player. Player attributes, roles, and team composition can affect how you approach a game."
                     },
                     {
-                        title: "Multiple Ways to Play",
-                        text: "Available modes differ by version and can include career, team management, and online competition."
+                        title: "Multiple Game Modes",
+                        text: "Depending on the edition, modes may include career progression, franchise management, online play, and team-building activities. Each mode provides a different basketball experience."
                     }
                 ],
 
-                note: "NBA 2K is a series rather than one specific edition. Features, rosters, platforms, and modes vary by release."
+                note: "Things to know: NBA 2K is a series, not one specific edition. Gameplay systems, rosters, modes, platforms, and online services vary by release. Check the edition you play for its exact features."
             },
 
 
+            /* 5. STREET FIGHTER 6 */
             "street-fighter-6": {
                 title: "Street Fighter 6",
                 genre: "Fighting",
                 image: "images/street-fighter-6-tournament.jpg",
                 tagline: "Master your chosen fighter, learn your matchups, and find your own way to compete.",
+
                 developer: "Capcom",
                 publisher: "Capcom",
                 release: "June 2, 2023",
                 platforms: "PlayStation 4, PlayStation 5, Xbox Series X|S, PC",
 
-                overview: "Street Fighter 6 is a fighting game in Capcom's long-running Street Fighter series. Players select a fighter with a distinct set of attacks and special moves, then compete by managing distance, timing, resources, and defensive choices.",
+                overview: "Street Fighter 6 is a fighting game in Capcom's long-running Street Fighter series. Players select a fighter with a distinct set of attacks and special moves, then compete by managing distance, timing, resources, and defensive choices. The game includes direct fighting modes alongside other activities that help players practice or explore the game's world.",
 
-                gameplay: "The game includes different control options to make its combat approachable to different players. Its major modes include Fighting Ground for direct combat, World Tour for a single-player adventure, and Battle Hub for social and online activities.",
+                gameplay: "Combat revolves around reading an opponent, choosing when to attack, controlling space, and managing the Drive Gauge. Players can use normal attacks, special moves, throws, and defensive mechanics to create openings. Different control options provide alternative ways to perform moves, while learning matchups helps players respond to common attacks and situations.",
 
                 features: [
                     {
-                        title: "Different Control Styles",
-                        text: "Control options provide different ways to perform moves, depending on a player's preference and experience."
+                        title: "Distinct Fighters and Matchups",
+                        text: "Each fighter has unique attacks, movement, and strategic strengths. Learning what your character does well and how to respond to other fighters is a major part of improving."
                     },
                     {
                         title: "Drive System",
-                        text: "The Drive Gauge supports offensive and defensive actions, creating important choices during a fight."
+                        text: "The Drive Gauge supports several offensive and defensive actions. Managing this resource and recognizing the risks of spending it can influence the flow of a round."
                     },
                     {
-                        title: "Multiple Modes",
-                        text: "Fighting Ground, World Tour, and Battle Hub offer different ways to practice, explore, and play."
+                        title: "Different Ways to Play",
+                        text: "Fighting Ground focuses on direct combat, World Tour offers a single-player adventure, and Battle Hub provides social and online activities."
                     }
                 ],
 
-                note: "Some features and online services require an internet connection and may vary by platform."
+                note: "Things to know: Start by learning your character's reliable attacks, anti-air options, and a simple combo. Improving spacing and defensive decisions is often more useful than memorizing long combos immediately."
             },
 
 
+            /* 6. CALL OF DUTY */
             "call-of-duty": {
                 title: "Call of Duty",
                 genre: "First-Person Shooter",
                 image: "images/call-of-duty-tournament.jpg",
-                tagline: "Experience fast-paced shooter action, team objectives, and tactical decisions in a familiar FPS series.",
+                tagline: "Experience fast-paced shooter action, team objectives, and tactical decisions across the Call of Duty series.",
+
                 developer: "Varies by installment",
                 publisher: "Activision",
                 release: "Series launched in 2003",
                 platforms: "Varies by installment",
 
-                overview: "Call of Duty is a first-person shooter franchise with entries that cover different conflicts, settings, and styles of combat. Depending on the release, players may experience a story campaign, competitive multiplayer, cooperative missions, or other modes.",
+                overview: "Call of Duty is a first-person shooter franchise with entries set in different conflicts, time periods, and fictional settings. Depending on the particular game, players may experience a story campaign, competitive multiplayer, cooperative missions, or additional modes. The series includes different styles of combat, so the available gameplay depends on which installment is being played.",
 
-                gameplay: "Multiplayer matches commonly reward map awareness, accurate aim, movement, teamwork, and understanding each mode's objective. The weapons, maps, progression systems, and available modes differ across installments, so players should check the details for the particular version they play.",
+                gameplay: "In multiplayer matches, players use weapons, equipment, movement, and map knowledge to defeat opponents or complete objectives. Different modes require different approaches: some reward controlling important locations, while others focus on eliminations or completing tasks. Team communication, positioning, and choosing a suitable loadout can help players contribute more consistently.",
 
                 features: [
                     {
-                        title: "First-Person Action",
-                        text: "Experience combat from a first-person perspective with a range of weapons and equipment."
+                        title: "Weapon and Loadout Choices",
+                        text: "Many installments let players customize weapons and equipment. Selecting a loadout that suits the map and objective can help you adapt to different match situations."
                     },
                     {
-                        title: "Objective-Based Matches",
-                        text: "Many multiplayer modes ask teams to capture, defend, or complete objectives instead of focusing only on eliminations."
+                        title: "Different Multiplayer Objectives",
+                        text: "Modes may involve capturing locations, defending objectives, or earning eliminations. Understanding the goal of a match helps you make better decisions than chasing every encounter."
                     },
                     {
-                        title: "Different Game Modes",
-                        text: "Campaign, multiplayer, cooperative, and additional modes depend on the specific installment."
+                        title: "Campaign and Other Modes",
+                        text: "Some releases include a story campaign, cooperative missions, or additional modes. Their availability and features depend on the specific Call of Duty title."
                     }
                 ],
 
-                note: "Call of Duty refers to a series. Exact modes, release dates, platforms, and system requirements depend on the selected title."
-            }
+                note: "Things to know: Call of Duty refers to a franchise rather than one specific game. Maps, weapons, modes, platforms, and system requirements vary by installment."
+            },
 
+
+            /* 7. MOBILE LEGENDS: BANG BANG */
+            "mobile-legends": {
+                title: "Mobile Legends: Bang Bang",
+                genre: "MOBA (Multiplayer Online Battle Arena)",
+                image: "images/mobile-legends.jpg",
+                tagline: "Choose your hero, work with your teammates, and battle to destroy the enemy base.",
+
+                developer: "MOONTON",
+                publisher: "MOONTON",
+                release: "2016",
+                platforms: "Android, iOS",
+
+                overview: "Mobile Legends: Bang Bang is a mobile multiplayer online battle arena game. Two teams select heroes with different abilities and compete on a map with lanes, defensive towers, jungle areas, and a base. Each hero serves a particular purpose, and teams need to balance damage, defense, and support to work together effectively.",
+
+                gameplay: "During a match, players earn gold and experience by defeating minions, fighting opponents, and taking part in objectives. These resources help heroes become stronger as the match progresses. Teams must decide when to stay in lane, rotate to assist allies, contest major objectives, or push toward enemy structures. Good map awareness and timing can create opportunities for the team.",
+
+                features: [
+                    {
+                        title: "Different Hero Roles",
+                        text: "Roles such as Tank, Fighter, Assassin, Mage, Marksman, and Support provide different approaches to combat. Knowing your hero's role helps you understand what your team needs from you."
+                    },
+                    {
+                        title: "Lanes and Objectives",
+                        text: "Players must balance lane pressure with helping teammates. Towers and major neutral objectives can create openings for coordinated pushes and team advantages."
+                    },
+                    {
+                        title: "Team Fights and Coordination",
+                        text: "Timing abilities, positioning carefully, and communicating before important fights can help a team work together. One player making a good decision is often most effective when allies can follow up."
+                    }
+                ],
+
+                note: "Things to know: Mobile Legends is a team-based game, so focus on objectives and cooperation rather than only personal eliminations. Hero balance, events, and features may change with updates."
+            },
+
+
+            /* 8. CALL OF DUTY: MOBILE */
+            "call-of-duty-mobile": {
+                title: "Call of Duty: Mobile",
+                genre: "Mobile First-Person Shooter",
+                image: "images/call-of-duty-mobile.jpg",
+                tagline: "Take shooter action on the go with mobile multiplayer and battle royale modes.",
+
+                developer: "TiMi Studio Group",
+                publisher: "Activision",
+                release: "October 2019",
+                platforms: "Android, iOS",
+
+                overview: "Call of Duty: Mobile brings first-person shooter combat to mobile devices. It includes multiplayer modes with different match objectives and a battle royale experience. Players can use a variety of weapons and equipment, adjust their controls, and choose different ways to participate in matches. Specific events and modes may rotate over time.",
+
+                gameplay: "Multiplayer matches reward aiming, movement, map awareness, and understanding each objective. Players can customize loadouts and select equipment suited to their preferred play style. In team modes, communicating, supporting teammates, and controlling important areas can be more useful than moving around without a plan. Battle royale gameplay adds survival, equipment collection, and positioning to the challenge.",
+
+                features: [
+                    {
+                        title: "Multiplayer Modes",
+                        text: "Different multiplayer formats use different objectives. Learning the map and understanding what your team must accomplish can help you make better decisions during a match."
+                    },
+                    {
+                        title: "Loadouts and Equipment",
+                        text: "Players can customize weapons and available equipment. Experimenting with control settings and loadouts can help you find a setup that feels comfortable."
+                    },
+                    {
+                        title: "Battle Royale",
+                        text: "The battle royale mode emphasizes survival, equipment collection, movement, and awareness. Players must adjust their plans as the playable area changes."
+                    }
+                ],
+
+                note: "Things to know: Call of Duty: Mobile is a separate mobile release from the main PC and console titles. Modes, events, and available content can change with updates."
+            },
+
+
+            /* 9. PUBG MOBILE */
+            "pubg-mobile": {
+                title: "PUBG Mobile",
+                genre: "Battle Royale Shooter",
+                image: "images/pubg-mobile.jpg",
+                tagline: "Land on the battlefield, find equipment, and work with your squad to survive.",
+
+                developer: "Lightspeed Studios / PUBG Studios",
+                publisher: "Varies by region",
+                release: "March 2018 (global release)",
+                platforms: "Android, iOS",
+
+                overview: "PUBG Mobile is a mobile battle royale shooter where players enter a large map, collect equipment, and compete to survive as the match progresses. Players can enter matches alone or in team formats, depending on the available mode. The changing safe zone and the location of other players make every match a series of decisions about movement and positioning.",
+
+                gameplay: "Players choose where to land, search for weapons and equipment, manage healing items, and move as the safe zone changes. Vehicles can help with movement, but may also reveal a team's location. Encounters require players to consider cover, distance, ammunition, and when it is better to move away instead of taking a fight. Squad play adds communication and coordination.",
+
+                features: [
+                    {
+                        title: "Battle Royale Survival",
+                        text: "Players must adapt as the playable area shrinks and encounters become more likely. Positioning, awareness, and knowing when to relocate are central parts of the experience."
+                    },
+                    {
+                        title: "Equipment and Map Choices",
+                        text: "Different landing areas offer different opportunities to collect equipment. Players must manage their inventory and make choices about the gear that best suits their plans."
+                    },
+                    {
+                        title: "Solo and Squad Strategies",
+                        text: "Team formats reward clear communication and coordinated movement. Supporting allies, sharing information, and avoiding unnecessary risks can help a squad stay organized."
+                    }
+                ],
+
+                note: "Things to know: PUBG Mobile is a battle royale game, so survival and positioning matter alongside aim. Maps, modes, and publishing arrangements may differ by region."
+            },
+
+
+            /* 10. HONOR OF KINGS */
+            "honor-of-kings": {
+                title: "Honor of Kings",
+                genre: "MOBA (Multiplayer Online Battle Arena)",
+                image: "images/honor-of-kings.jpg",
+                tagline: "Choose a hero, coordinate your team, and compete in strategic arena battles.",
+
+                developer: "TiMi Studio Group",
+                publisher: "Varies by region",
+                release: "2015 (original China release)",
+                platforms: "Android, iOS",
+
+                overview: "Honor of Kings is a multiplayer online battle arena game in which teams choose heroes with different abilities and roles. Players cooperate across lanes, fight opponents, and compete for map objectives while trying to destroy the enemy base. Team composition and the way players work together help shape each match.",
+
+                gameplay: "Players develop their heroes by earning resources during a match. They must decide when to defend a lane, help a teammate, contest an objective, or move with the team. A successful push often requires several players to coordinate their abilities and take advantage of the space created by winning a fight or gaining control of an area.",
+
+                features: [
+                    {
+                        title: "Hero Roles and Abilities",
+                        text: "Heroes have different combat styles and purposes. Selecting a hero and understanding their capabilities helps players contribute to their team's overall plan."
+                    },
+                    {
+                        title: "Lane and Objective Control",
+                        text: "Players must balance their lane responsibilities with helping the team. Controlling important areas and responding to opponents can create opportunities to move toward the enemy base."
+                    },
+                    {
+                        title: "Team Strategy",
+                        text: "Timing, coordination, and choosing when to take a fight all matter. Teams need to adjust to their opponents instead of repeating the same approach in every situation."
+                    }
+                ],
+
+                note: "Things to know: Honor of Kings is a mobile MOBA. It shares broad genre ideas with other lane-based team games, but its heroes, systems, and balance are specific to its own game."
+            },
+
+
+            /* 11. GARENA FREE FIRE */
+            "free-fire": {
+                title: "Garena Free Fire",
+                genre: "Battle Royale Shooter",
+                image: "images/free-fire.jpg",
+                tagline: "Compete in fast-paced battle royale matches and try to be the last player or squad standing.",
+
+                developer: "111dots Studio",
+                publisher: "Garena",
+                release: "December 2017",
+                platforms: "Android, iOS",
+
+                overview: "Garena Free Fire is a mobile battle royale game built around survival-focused matches. Players enter a map, gather equipment, and compete while the playable area changes. The game offers character choices and different ways to approach a match, while squad formats add opportunities for coordination and shared strategy.",
+
+                gameplay: "Players must make quick choices about landing, equipment, positioning, and engaging other teams. The changing safe zone encourages players to keep moving and adjust their plans. Character abilities can influence how players approach encounters, while weapon choices and teamwork help determine how a squad handles different situations.",
+
+                features: [
+                    {
+                        title: "Fast-Paced Battle Royale",
+                        text: "Matches emphasize quick decisions about movement, equipment, and positioning. Players need to adapt to the changing play area instead of staying in one place for too long."
+                    },
+                    {
+                        title: "Characters and Abilities",
+                        text: "Character options can offer different abilities. Understanding how those abilities work and combining them thoughtfully can support a player's preferred style."
+                    },
+                    {
+                        title: "Solo and Squad Play",
+                        text: "Players can use different available match formats. In squad play, sharing information and staying coordinated can help teammates respond to encounters."
+                    }
+                ],
+
+                note: "Things to know: Free Fire is designed for mobile battle royale play. Character abilities, events, and other gameplay systems can change as the game receives updates."
+            },
+
+
+            /* 12. DOTA 2 */
+            "dota-2": {
+                title: "Dota 2",
+                genre: "MOBA (Multiplayer Online Battle Arena)",
+                image: "images/dota-2.jpg",
+                tagline: "Pick your hero, develop a strategy, and work with your team to destroy the enemy Ancient.",
+
+                developer: "Valve",
+                publisher: "Valve",
+                release: "July 2013",
+                platforms: "Windows PC, macOS, Linux",
+
+                overview: "Dota 2 is a competitive multiplayer online battle arena game in which two teams select heroes and work together across a map. Each team attempts to destroy the opposing team's Ancient while defending its own base. Heroes have different abilities and roles, and the way they combine can influence a team's strategy throughout the match.",
+
+                gameplay: "Players earn gold and experience, improve their heroes during the match, and purchase items that change their capabilities. Team members make decisions about lanes, map movement, defensive structures, and major objectives. Drafting, resource management, timing, positioning, and communication are important because the choices made throughout a match can influence later fights.",
+
+                features: [
+                    {
+                        title: "Large Hero Pool",
+                        text: "Dota 2 offers a wide range of heroes with distinct abilities and different roles. Learning a smaller selection of heroes can help new players understand the basics before expanding their choices."
+                    },
+                    {
+                        title: "Items and Strategy",
+                        text: "Gold can be spent on items that suit a hero and the match situation. Players need to adapt their builds to enemy heroes, team needs, and the stage of the game."
+                    },
+                    {
+                        title: "Team-Based Objectives",
+                        text: "Lanes, towers, map control, and coordinated team fights all contribute to a team's progress. Choosing the right time to fight or take an objective is often more important than acting alone."
+                    }
+                ],
+
+                note: "Things to know: Dota 2 is a PC-focused competitive MOBA with a steep learning curve. Learning a few heroes, understanding the map, and communicating with teammates are useful starting points."
+            }
+        };
+
+
+        /*
+        ==================================================
+        MATCH THE URL TO A GAME
+        Aliases help prevent mismatched links.
+        ==================================================
+        */
+
+        const rawGameKey =
+            new URLSearchParams(window.location.search).get("game") || "";
+
+        const normalizedGameKey = rawGameKey
+            .trim()
+            .toLowerCase()
+            .replace(/[\s_]+/g, "-");
+
+        const gameAliases = {
+            "tekken-8": "tekken8",
+            "nba-2k": "nba2k",
+
+            "streetfighter6": "street-fighter-6",
+            "street-fighter": "street-fighter-6",
+
+            "marvelrivals": "marvel-rivals",
+
+            "mobilelegends": "mobile-legends",
+            "mobile-legends-bang-bang": "mobile-legends",
+            "mobile-legends-bangbang": "mobile-legends",
+
+            "callofdutymobile": "call-of-duty-mobile",
+            "cod-mobile": "call-of-duty-mobile",
+            "codm": "call-of-duty-mobile",
+
+            "pubgmobile": "pubg-mobile",
+            "honorofkings": "honor-of-kings",
+
+            "garena-free-fire": "free-fire",
+            "freefire": "free-fire",
+
+            "dota2": "dota-2",
+            "dota": "dota-2"
         };
 
         const selectedGameKey =
-            new URLSearchParams(window.location.search).get("game");
+            gameAliases[normalizedGameKey] || normalizedGameKey;
 
         const selectedGame = gameLibrary[selectedGameKey];
 
+        const detailsContent =
+            document.getElementById("gameDetailsContent");
+
+        const notFoundSection =
+            document.getElementById("gameNotFound");
+
+
+        /*
+        ==================================================
+        DISPLAY THE SELECTED GAME
+        ==================================================
+        */
 
         if (!selectedGame) {
 
-            document.getElementById("gameDetailsContent").hidden = true;
-            document.getElementById("gameNotFound").hidden = false;
+            detailsContent.hidden = true;
+            notFoundSection.hidden = false;
             document.title = "Game Not Found - GameZone";
 
         } else {
@@ -738,20 +991,29 @@
             document.getElementById("gamePlatforms").textContent =
                 selectedGame.platforms;
 
-            document.getElementById("gameNote").textContent =
-                selectedGame.note;
+            document.getElementById("gameNote").innerHTML =
+                "<strong>Things to Know:</strong> " + selectedGame.note.replace(
+                    /^Things to know:\s*/i,
+                    ""
+                );
 
+
+            /* LOAD GAME BANNER */
 
             const banner = document.getElementById("gameBanner");
 
             banner.src = selectedGame.image;
-            banner.alt = selectedGame.title + " gameplay image";
+            banner.alt = selectedGame.title + " game artwork";
 
             banner.onerror = function () {
                 this.style.display = "none";
             };
 
-            const featureList = document.getElementById("gameFeatureList");
+
+            /* CREATE THREE FEATURE CARDS */
+
+            const featureList =
+                document.getElementById("gameFeatureList");
 
             selectedGame.features.forEach(function (feature, index) {
 
@@ -776,7 +1038,6 @@
                 featureList.appendChild(column);
 
             });
-
         }
     </script>
 
